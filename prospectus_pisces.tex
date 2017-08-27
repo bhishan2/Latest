@@ -1,0 +1,261 @@
+\documentclass[12pt, preprint,letterpaper]{article}
+\usepackage{epsfig}
+\usepackage{xspace}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\graphicspath{ {figures/} }
+%%for list of tables
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@caption}{\csname the#1\endcsname}{\csname fnum@#1\endcsname:}{}{}
+\renewcommand*\l@figure{\@dottedtocline{1}{1.5em}{4.5em}} % default for 3rd arg: 2.3em
+\let\l@table\l@figure % as in article.cls
+\makeatother
+%% end list of tables
+%%
+% Begin of document
+\begin{document}
+%
+%
+%#******************************************************************************
+%#==============================================================================
+%#          Beginning: Preamble page
+%#==============================================================================
+%#******************************************************************************
+%
+\thispagestyle{empty}
+\begin{center}
+\textbf{Effects of Wavelength Dependence on Galaxy Shear Measurement} \\
+
+\vspace{2cm}
+PH.D. THESIS PROSPECTUS BY BHISHAN POUDEL \\
+(ADVISOR: ASSOCIATE PROF. DOUGLAS CLOWE) \\
+
+\vspace{3cm}
+\it{
+Department of Physics and Astronomy\\
+Ohio University\\
+Athens, OH 45701\\
+\vspace{2cm}
+bp959314@ohio.edu\\
+}
+
+
+\vspace{3cm}
+\it{
+Prof. Douglas Clowe\,  \hspace{2mm} (Department of Physics \& Astronomy)\\
+Prof. Ryan Chornock\,  \hspace{2mm} (Department of Physics \& Astronomy)\\
+Prof. Hee Jong Seo\, \hspace{3mm} (Department of Physics \& Astronomy)
+}
+
+\end{center}
+%
+%
+%#******************************************************************************
+%#==============================================================================
+%#          Table of contents
+%#==============================================================================
+%#******************************************************************************
+%
+%
+\clearpage
+\tableofcontents
+\listoffigures
+\listoftables
+\clearpage{}
+%
+%
+%#******************************************************************************
+%#==============================================================================
+%#          List of Acronyms
+%#==============================================================================
+%#******************************************************************************
+%
+\thispagestyle{empty}
+\begin{center}
+\textbf{LIST OF ACRONYMS}
+\end{center}
+\textbf{CDM}    \hspace{9.5mm} Cold Dark Matter \\
+\textbf{CMB}    \hspace{10mm} Cosmic Microwave Background \\
+\textbf{DE}     \hspace{15mm} Dark Energy \\
+\textbf{DM}     \hspace{14mm} Dark Matter \\
+\textbf{FWHM}   \hspace{6mm} Full Width Half Maximum \\
+\textbf{GR}     \hspace{15mm} General Relativity \\
+\textbf{HST}    \hspace{13mm} Hubble Space Telescope \\
+\textbf{IMCAT}  \hspace{7mm} Image and Catalogue Manipulation Software \\
+\textbf{LSS}    \hspace{15mm} Large Scale Structure \\
+\textbf{LSST}   \hspace{12mm} Large Synoptic Survey Telescope \\
+\textbf{PSF}    \hspace{14mm} Point Spread Function \\
+\textbf{SED}    \hspace{14mm} Spectral Energy Distribution \\
+\textbf{WFIRST} \hspace{4mm}  Wide-Field Infra-red Survey Telescope \\
+%longest word wfirst is 6 letter long and make it 4mm wide.
+%one letter less is about 3mm longer space.
+
+\newpage
+%
+%
+%#******************************************************************************
+%#==============================================================================
+%#          Section 1: Introduction
+%#==============================================================================
+%#******************************************************************************
+%
+%
+\section{Introduction}\label{sec:sec1}
+According to standard model of cosmology dark matter accounts for  28.5\% of total mass energy content of the Universe.
+It's mainly dominated in Galaxy and Galaxy Clusters.
+Anisotropy in the Cosmic microwave background,cosmic
+structure formation, galaxy formation
+and evolution suggest the presence of dark matter.
+As it does not interact with electromagnetic radiation and
+visible matter the method it can  be detected is by observing
+it's effect on ordinary baryonic matter.
+%
+%#******************************************************************************
+%#==============================================================================
+%#          Section 1: Introduction
+%#==============================================================================
+%#******************************************************************************
+%
+%
+Gravitational Lensing provides us a way
+to see how dark matter along with visible matter is distributed
+in a galaxy or galaxy cluster.
+This is supported by Einstein's general theory of relativity
+which predicts the deflection of light in a gravitational field
+produced by a massive object. (refer to \cite{fabian12})
+\ref{sec:sec1}
+%
+%
+%#------------------------------------------------------------------------------
+%#          Subsection 1a: Formulation of Gravitational Lensing
+%#------------------------------------------------------------------------------
+%
+%
+\subsection{ Formulation of Gravitational Lensing}\label{subsec:lensing}
+I have to write here.
+
+\subsubsection{Einstein's Deflection Angle}\label{subsubsec:lensing}
+% aug 10, barSch  page 326
+General Relativity predicts that when the beam of light passes throug near
+the massive objects the rays are bent. If the massive object of mass $M$ is at a
+perpendicular distance $\xi$ (i.e. impact parameter) then the deflection for point
+mass is given by
+\begin{equation}\label{[eq:delection_eqn]}
+\hat{\alpha} = \frac{4GM}{c^2\xi}
+\end{equation}
+This equation (\ref*{[eq:delection_eqn]} ) is valid only when the angle
+ $\hat{\alpha} <<1  $ . In  our field of interest gravitational lensing it is always the
+ case and the deflection angle is always very very small. For quantitative purpose,
+ we can calcuate the value for solar limb light deflection.
+ We set following values in the above equation (\ref*{[eq:delection_eqn]} ):\
+ $M = M_{\odot}$, $ R = R_{\odot}$ and calculation results in \
+ \begin{equation}\label{[eq:delection_eqn]}
+ \hat{\alpha} = 1.74''
+ \end{equation}
+
+ \begin{figure}[h!]\label{[fig:lensing]}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/lensing2.jpeg}
+    \caption{Simple sketch to gravitational lensing. (Bartlemann and Schneider 2001)} % cite this
+\end{figure}
+
+We want to probe the mass of the lens which has the angular diameter distance
+ $D_d$ with redshift $z_d$ and lies between the observer and the source background mass.
+ The lens mass can be visible or dark matter however, the
+ source mass is visible objects such as galaxies, galaxies-cluseter, QUASAR, and so on.
+ The source has angular diameter distance $D_s$ with a redshift $z_s$.
+ In absence of lens plane source will make an angle $\theta$ to the observer,
+ and in presence of lens the source will make an angle $\beta$ to the observer.
+ The deflection angle is $\alpha$.
+
+
+
+
+
+
+
+
+%
+%
+%#------------------------------------------------------------------------------
+%#          Subsection 1a: Creation of PSF
+%#------------------------------------------------------------------------------
+%
+%
+\subsection{Creation of PSF}\label{subsec:}
+I have to write this chapter.
+
+
+
+
+
+
+
+%
+%
+%#******************************************************************************
+%#==============================================================================
+%#          Section 2:  Future Projects
+%#==============================================================================
+%#******************************************************************************
+%
+%
+\section{Future Projects}\label{sec:sec2}
+ \begin{figure}[h!]
+ \centering
+  \includegraphics[width=0.5\textwidth]{convolve.png}
+ \caption{This is caption.}
+ \end{figure}
+\newpage{}
+%
+%
+%#******************************************************************************
+%#==============================================================================
+%#          Section 3: Timeline
+%#==============================================================================
+%#******************************************************************************
+%
+%
+\section{Timeline}
+I intend to complete all elements of this project within two years.
+An outline of the projected time line is presented in the table below.
+The dates and activities displayed are subject to change should
+unforeseen and interesting developments occur during the projects that
+may require special attention and time.
+\begin{table}[h]
+\caption{Time-line}
+\vspace{5mm}
+\centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            Start&Finish&Activity\\
+            \hline
+            Sep. 2016& March 2017 &  \\
+            \hline
+            April 2017 & Sep. 2017 &   \\
+            \hline
+            Sep. 2017 & March 2018 & Preparation of manuscripts for publication \\
+            \hline
+            March 2018 & Aug. 2018& Writing and defending the dissertation   \\
+            \hline
+            \end{tabular}
+\end{table}
+%
+%
+%#******************************************************************************
+%#==============================================================================
+%#               Bibliography and End Document
+%#==============================================================================
+%#******************************************************************************
+%
+%
+\newpage
+\bibliographystyle{plain}
+\bibliography{bib/prospectus}
+\end{document}

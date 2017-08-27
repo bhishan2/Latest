@@ -1,0 +1,81 @@
+[
+  {
+  "type": "button",
+  "tooltip": "Find and Replace",
+  "callback": "find-and-replace:show",
+  "icon": "search",
+  "iconset": "fa"
+  },
+  {
+    "type": "spacer"
+  },
+  {
+  "type": "button",
+  "tooltip": "Code Fold",
+  "callback": "editor:fold-current-row",
+  "icon": "level-down",
+  "iconset": "fa"
+  },
+  {
+  "type": "button",
+  "tooltip": "Code Unfold",
+  "callback": "editor:unfold-current-row",
+  "icon": "level-up",
+  "iconset": "fa"
+  },
+  {
+  "type": "button",
+  "tooltip": "Code Fold All",
+  "callback": "editor:fold-all",
+  "icon": "android-arrow-dropdown",
+  "iconset": "ion"
+  },
+  {
+  "type": "button",
+  "tooltip": "Code Unold All",
+  "callback": "editor:unfold-all",
+  "icon": "android-arrow-dropup",
+  "iconset": "ion"
+  },
+  {
+  "type": "button",
+  "tooltip": "Split and move right",
+  "callback": "pane:split-right-and-copy-active-item",
+  "icon": "ios-arrow-right",
+  "iconset": "ion"
+  },
+  {
+  "type": "button",
+  "tooltip": "Pane Close",
+  "callback": "pane:close",
+  "icon": "ios-close",
+  "iconset": "ion"
+  },
+  {
+  "type": "button",
+  "tooltip": "Split screen - Horizontally",
+  "callback": "pane:split-right",
+  "icon": "columns",
+  "iconset": "fa"
+  },
+  {
+    "type": "spacer"
+  },
+  {
+  "type": "button",
+  "tooltip": "Run script",
+  "callback": "script:run",
+  "icon": "play",
+  "iconset": "ion"
+  },
+  {
+  "type": "button",
+  "tooltip": "Stop script",
+  "callback": "script:kill-process",
+  "icon": "stop",
+  "iconset": "ion"
+  },
+  {
+    "type": "spacer"
+  }
+]

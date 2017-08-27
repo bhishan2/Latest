@@ -1,0 +1,97 @@
+# Author  : Bhishan Poudel
+# Date    : June 9, 2016
+# Version : 1.0
+# File    : Filetype for both python and phosim_instance_catalogs
+
+[styling]
+default=default
+commentline=comment_line
+number=number_1
+string=string_1
+character=character
+word=keyword_1
+triple=string_2
+tripledouble=string_2
+classname=type
+defname=function
+operator=operator
+identifier=identifier_1
+commentblock=comment
+stringeol=string_eol
+word2=keyword_2
+decorator=decorator
+     
+
+[keywords]
+# all items must be in one line
+primary=and as assert break class continue def del elif else except exec finally for from global if import in is lambda not or pass print raise return try while with yield False None True
+
+
+identifiers=ArithmeticError AssertionError AttributeError BaseException BufferError BytesWarning DeprecationWarning EOFError Ellipsis EnvironmentError Exception FileNotFoundError FloatingPointError FutureWarning GeneratorExit IOError ImportError ImportWarning IndentationError IndexError KeyError KeyboardInterrupt LookupError MemoryError NameError NotImplemented NotImplementedError OSError OverflowError PendingDeprecationWarning ReferenceError RuntimeError RuntimeWarning StandardError StopIteration SyntaxError SyntaxWarning SystemError SystemExit TabError TypeError UnboundLocalError UnicodeDecodeError UnicodeEncodeError UnicodeError UnicodeTranslateError UnicodeWarning UserWarning ValueError Warning ZeroDivisionError __debug__ __doc__ __import__ __name__ __package__ abs all any apply basestring bin bool buffer bytearray bytes callable chr classmethod cmp coerce compile complex copyright credits delattr dict dir divmod enumerate eval execfile exit filter float format frozenset getattr globals hasattr hash help hex id input int intern isinstance issubclass iter len license list locals long map max memoryview min next oct open ord pow print property quit range raw_input reduce reload repr reversed round set setattr slice sorted split staticmethod sum super tuple type unichr unicode vars xrange zip .................................................................................. array arange astropy Catagorical close communicate copy copytree cStringIO ctime csv DataFramedate_range datetime deepcopy division exists eyed3 file fileinput fits __future__ genfromtxt  glob gzip heapq imshow integrate interp1d interpolate io isdir join linspace loadtxt log10 lstrip makedirs math matplotlib mpl_toolkits multiprocessing natsort natsorted none now numpy np os optimize pandas path pd plot plt Popen print_function pyfits pyplot random randint re readlines RectBivariateSpline replace returncode rmtree errno rstrip savefig savetxt statsmodels sklearn scipy Series show shutil simps sp str strftime StringIO subprocess sys time trapz UnivariateSpline write zipfile Zipfile ..........math......... sin cos tan log log10 exp sqrt ......for_parallel.......... mp delayed Parallel joblib cpu_count ...............For_machine_learning...... read_csv Imputer sklearn preprocessing transform LabelEncoder OneHotEncoder cross_validation model_selection train_test_split linear_model LinearRegression scatter StandardScalar iloc fit_transform svm RandomForestRegressor tensorflow tf keras DataFrame DF help ....Libraries.... sympy binomial factorial argparse argv pathlib Path inspect temp operator subtract add tolist array_split
+
+
+
+# modules: os, sys, subprocess, math, re, shutil,copy, random, scipy, pandas
+#          heapq zipfile
+   
+# DO NOT ADD:
+
+# math
+# sin cos tan log log10 exp sqrt
+
+
+[lexer_properties]
+fold.comment.python=1
+fold.quotes.python=1
+    
+
+[settings]
+# default extension used when saving files
+extension=py
+
+# the following characters are these which a "word" can contains, see documentation
+wordchars=_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+    
+# MIME type
+mime_type=text/x-python
+comment_single=#
+comment_open="""
+comment_close="""
+comment_use_indent=true
+     
+# context action command (please see Geany's main documentation for details)
+context_action_cmd=
+     
+
+[indentation]
+width=4
+# 0 is spaces, 1 is tabs, 2 is tab & spaces
+type=0
+     
+
+[build_settings]
+# %f will be replaced by the complete filename
+# %e will be replaced by the filename without extension
+# (use only one of it at one time)
+compiler=python -m py_compile "%f"
+run_cmd=python "%f"
+    
+
+[build-menu]
+FT_01_LB=Build
+FT_01_CM=clear; 2to3 -w %f
+FT_01_WD=
+FT_02_LB=
+FT_02_CM=
+FT_02_WD=
+EX_00_LB=Execute
+EX_00_CM=clear; python3 %f
+EX_00_WD=
+error_regex=([^:]+):([0-9]+):([0-9:]+)? .*
+EX_01_LB=
+EX_01_CM=
+EX_01_WD=
+
+EX_02_LB=stdoutBoth
+EX_02_CM=clear; ./%e.py 2>&1 | tee %e_output.txt
+EX_02_WD=

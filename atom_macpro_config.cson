@@ -1,0 +1,91 @@
+"*":
+  "advanced-open-file":
+    createDirectories: true
+    createFileInstantly: true
+    fuzzyMatch: true
+  "atom-shell-commands":
+    commands: [
+      {
+        name: "backup"
+        command: "cp"
+        arguments: [
+          "{FileName}"
+          "/Users/poudel/Dropbox/FileBackups/macpro_{FileNameNoExt}{FileExt}"
+        ]
+        options:
+          cwd: "{FileDir}"
+          keymap: "ctrl-2"
+      }
+    ]
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+    minimumWordLength: 2
+  autosave:
+    enabled: true
+  core:
+    disabledPackages: [
+      "autocomplete-css"
+      "autocomplete-html"
+      "language-clojure"
+      "language-csharp"
+      "language-css"
+      "language-go"
+      "language-html"
+      "language-java"
+      "language-javascript"
+      "language-less"
+      "language-mustache"
+      "language-objective-c"
+      "language-perl"
+      "language-php"
+      "language-property-list"
+      "language-ruby"
+      "language-ruby-on-rails"
+      "language-sass"
+      "language-sql"
+      "language-xml"
+      "language-toml"
+      "metrics"
+      "welcome"
+      "autocomplete-plus"
+    ]
+  date:
+    dateFormat: "MMM D, YYYY DDD"
+  editor:
+    atomicSoftTabs: false
+    showIndentGuide: true
+    showInvisibles: true
+    softTabs: false
+    softWrap: true
+  "exception-reporting":
+    userId: "9d1bbcf0-4744-4ee4-8fe2-24c3dddd6d02"
+  "linter-ui-default":
+    panelHeight: 69
+  "pdf-view":
+    fitToWidthOnOpen: true
+  "preview-inline":
+    imageBasePath: "figures"
+    previewMode: "all"
+  script:
+    cwdBehavior: "Directory of the script"
+  "spell-check":
+    addKnownWords: true
+    knownWords: [
+      "Bhishan Poudel"
+    ]
+    localePaths: [
+      "/opt/local/share/hunspell/"
+    ]
+    locales: [
+      "en-US"
+    ]
+  "tool-bar": {}
+  "tool-bar-almighty":
+    custom: "custom_entries.json"
+  wakatime:
+    apikey: "Saved in your ~/.wakatime.cfg file"
+    disableSSLCertVerify: true
+  wordcount:
+    alwaysOn: true
+    ignorecode: true
+    noextension: true

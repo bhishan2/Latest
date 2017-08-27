@@ -1,0 +1,749 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+#  After installing project manager, ctrl alt p for settings, then type
+#  install, click install packages and themes, go to settings,
+#  search language-python we see scope source.python
+# Alternative, If toolbar activated, just click settings, and do same thing.
+#
+# To find source name go to preferences look for language and look scope.
+# e.g. search restructuredtext
+# it shows text.restructuredtext
+#
+##==============================================================================
+##          Python SNIPPETS
+##==============================================================================
+'.source.python':
+    'Header':
+        'prefix': 'xhdr'
+        'body': '#!python\n# -*- coding: utf-8 -*-#\n#\n# Author      : Bhishan Poudel; Physics Graduate Student, Ohio University\n# Date        : $1\n# Last update :\n# Est time    :\n\n# Imports\n$2$0'
+
+    'import multiprocessing':
+        'prefix': 'mp'
+        'body': 'mp=import multiprocessing as mp'
+
+    'import numpy':
+        'prefix': 'xnp'
+        'body': 'import numpy as np'
+
+    'import pandas':
+        'prefix': 'xpd'
+        'body': 'import pandas as pd'
+
+    'import scipy':
+        'prefix': 'xsp'
+        'body': 'import scipy as sp'
+
+    'import astropy':
+        'prefix': 'xap'
+        'body': 'import astropy.io'
+
+    'import matplotlib.pyplot':
+        'prefix': 'xplt'
+        'body': 'import matplotlib.pyplot as plt'
+
+    'import astropy fits':
+        'prefix': 'xfits'
+        'body': 'from astropy.io import fits'
+
+    'import astropy fits getheader':
+        'prefix': 'xgetheader'
+        'body': 'from astropy.io.fits import getheader'
+
+    'import astropy fits getval':
+        'prefix': 'xgetval'
+        'body': 'from astropy.io.fits import getval'
+
+    'import astropy fits getdata':
+        'prefix': 'xgetdata'
+        'body': 'from astropy.io.fits import getdata'
+
+    'print with format':
+        'prefix': 'xprf'
+        'body': 'print( \'\{\}\'.format($1))$0'
+
+
+    'print ':
+        'prefix': 'xpr'
+        'body': 'print($0)'
+
+    'print newline':
+        'prefix': 'xprn'
+        'body': 'print("\\\\n")'
+
+    'numpy arange for integers':
+        'prefix': 'xarange'
+        'body': 'np.arange($1, $2, step = $3) $0'
+
+    'read columns of file using numpy':
+        'prefix': 'xreadfile'
+        'body': 'infile = "$1"\nx = np.genfromtxt(infile, delimiter=None, usecols=(0),\\\n                  dtype=str, unpack=True)\ny = np.genfromtxt(infile, delimiter=None, usecols=(1),\\\n                  dtype=float, unpack=True)\n$0'
+
+    'fileread using pandas':
+        'prefix': 'xfilereadpd'
+        'body': 'infile = "$1"\ncolnames = ["col0", "col1"]\ndf = pd.read_csv(infile, sep="\s+", header=None, skiprows=0,\n                 comment="#", names=colnames, usecols=(0, 1))\n\nprint("\{\} \{\} \{\}".format("input file header: \\n", df.head(), "\\n"))$0'
+
+    'time taken to run program':
+        'prefix': 'xtime'
+        'body': 'import time\n\n# beginning time\nprogram_begin_time = time.time()\nbegin_ctime        = time.ctime()\n\n\n# print the time taken\nprogram_end_time = time.time()\nend_ctime        = time.ctime()\nseconds          = program_end_time - program_begin_time\nm, s             = divmod(seconds, 60)\nh, m             = divmod(m, 60)\nd, h             = divmod(h, 24)\nprint("\\nBegin time: ", begin_ctime)\nprint("End   time: ",  end_ctime, \\n")\nprint("Time taken: \{0: .0f\} days, \{1: .0f\} hours,\\\n      \{2: .0f\} minutes, \{3: f\} seconds.".format(d, h, m, s))\n'
+
+    'function':
+        'prefix': 'xdef'
+        'body': 'def $1($2):\n    """$3"""\n    $4\n    return ${5:None}$0'
+
+    'fn with args':
+        'prefix': 'xdeff'
+        'body': 'def $1($2):\n    """$3\n\n    Args:\n        $2: $5\n\n    Returns: $6\n\n    """\n    #  $7\n    return ${8:None}$0'
+
+
+    'print':
+        'prefix': 'xpr'
+        'body': 'print($1)$0'
+
+
+    'print 2 decimal points':
+        'prefix': 'xpr2'
+        'body': 'print(\'\{\} \{:.2f\} \{\}\'.format(\'$1 = \', $2, \'$3\'))$0'
+
+
+    '2 decimal points for all elements of list':
+        'prefix': 'xprl'
+        'body': 'print([float(str(np.round((x), 2))) for x in $1])'
+
+    'docstring':
+        'prefix': 'xdoc'
+        'body': '"""$1"""$0'
+
+    'def main':
+        'prefix': 'xmain'
+        'body': 'def main():\n    """Run main function."""\n    $1\n\nif __name__ == "__main__":\n    main()$0'
+
+    'if __name__ == __main__':
+        'prefix': 'name'
+        'body': 'if __name__ == "__main__":\n    #\n    $1()'
+
+    'def main with time':
+        'prefix': 'xmaint'
+        'body': 'def main():\n    """Run main function."""\n    $1\n\nif __name__ == "__main__":\n    import time\n\n    # Beginning time\n    program_begin_time = time.time()\n    begin_ctime        = time.ctime()\n\n    #  Run the main program\n    main()\n\n    # Print the time taken\n    program_end_time = time.time()\n    end_ctime        = time.ctime()\n    seconds          = program_end_time - program_begin_time\n    m, s             = divmod(seconds, 60)\n    h, m             = divmod(m, 60)\n    d, h             = divmod(h, 24)\n    print("\\nBegin time: ", begin_ctime)\n    print("End   time: ", end_ctime, "\\\\n")\n    print("Time taken: \{0: .0f\} days, \{1: .0f\} hours, \\\\\n      \{2: .0f\} minutes, \{3: f\} seconds.".format(d, h, m, s))\n$0'
+
+    'print(a)':
+        'prefix': 'xpra'
+        'body': 'print(a)'
+
+
+    'Dictionary Comprehension':
+        'prefix': 'xdc'
+        'body': '{${1:key}: ${2:value} for ${3:key}, ${4:value} in ${5:variable}}'
+
+    'List Comprehension':
+        'prefix': 'xlc'
+        'body': '[${1:value} for ${2:value} in ${3:variable}]'
+
+    'Print Dictionary Key Values':
+        'prefix': 'xprd'
+        'body': 'for key, value in config.items():\n    print (key, " = ", value)'
+
+    'Print List Elements':
+        'prefix': 'xprl'
+        'body': 'for _ in $1:\n    print(_)'
+
+    'From Future Import Libraries':
+        'prefix': 'xfut'
+        'body': '''from __future__ import print_function, unicode_literals, division, absolute_import'''
+
+    'Print a':
+        'prefix': 'xpra'
+        'body': """print('a = ', a)"""
+
+    'Print b':
+        'prefix': 'xprb'
+        'body': """print('b = ', b) """
+
+    'Print c':
+        'prefix': 'xprc'
+        'body': """print('c = ', c) """
+
+    '':
+        'prefix': ''
+        'body': """ """
+
+    '':
+        'prefix': ''
+        'body': """ """
+
+    '':
+        'prefix': ''
+        'body': """ """
+
+    '':
+        'prefix': ''
+        'body': """ """
+
+        
+     #=============== For rest docstrings in python ===============
+    'Conents':
+        'prefix': 'xcontents'
+        'body': '.. contents:: Table of Contents\n   :depth: 3\n\n'
+
+    'Toc Tree':
+        'prefix': 'xtoc'
+        'body': '.. toctree::\n   :maxdepth: 4\n\n   $1'
+
+    'Header 1 #':
+        'prefix': 'xha'
+        'body': '$1\n################################################################################\n\n'
+
+    'Header 2 *':
+        'prefix': 'xhb'
+        'body': '$1\n********************************************************************************\n\n'
+
+    'Header 3 =':
+        'prefix': 'xhc'
+        'body': '$1\n================================================================================\n\n'
+
+    'Header 4 -':
+        'prefix': 'xhd'
+        'body': '$1\n--------------------------------------------------------------------------------\n\n'
+
+    'Header 5 ^':
+        'prefix': 'xhe'
+        'body': '$1\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n'
+
+    'Header 6 "':
+        'prefix': 'xhf'
+        'body': '$1\n""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""\n\n'
+
+    'Image':
+        'prefix': 'ximg'
+        'body': '.. image:: ../images/$1.png\n   :height: 100px\n   :width: 400 px\n   :align: center\n'
+
+    'Figure':
+        'prefix': 'xfig'
+        'body': '\n.. figure:: ../images/a.png\n    :width: 200px\n    :align: center\n    :height: 100px\n    :alt: alternate text\n    :figclass: align-center\n\n    This is caption.\n'
+
+    'Footnote':
+        'prefix': 'xfootnote'
+        'body': '[#f1]_  \n\n.. rubric:: Footnotes\n\n.. [#f1] Text of the first footnote.\n\n'
+
+    'Cite':
+        'prefix': 'xcite'
+        'body': '[book]_ \n\n.. [book] Name of book'
+
+    'Link':
+        'prefix': 'xlink'
+        'body': '`Link text <$1>`_'
+
+    'Link Two Lines':
+        'prefix': 'xlink2'
+        'body': '`a link`_.\n\n.. _a link: $1\n\n'
+
+    'Table':
+        'prefix': 'xtbl'
+        'body': '\n\n=====  =====  =======\nA      B      A and B\n=====  =====  =======\nF      F      F\nT      F      F\nF      T      F\nT      T      T\n=====  =====  =======\n\n'
+
+    'Table Large':
+        'prefix': 'xtbl2'
+        'body': '\n\n+------------------------+------------+----------+----------+\n| Header1                | Header 2   | Header 3 | Header 4 |\n+========================+============+==========+==========+\n| ..                     | 12         |   13     | 14       |\n+------------------------+------------+----------+----------+\n| 21                     | 22         | 23       |       24 |\n+------------------------+------------+----------+----------+\n\n'
+
+    'Subscript':
+        'prefix': 'xss'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sub:`2`\ O\n'
+
+    'Subscript':
+        'prefix': 'xsubscript'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sub:`2`\ O\n'
+
+    'Superscript':
+        'prefix': 'xsuperscript'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sup:`2`\ O\n'
+
+    'Superscript':
+        'prefix': 'xss2'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sup:`2`\ O\n'
+
+    'Code':
+        'prefix': 'xcode'
+        'body': '::\n\n    $1.'
+
+    'New Line':
+        'prefix': 'xn'
+        'body': '\n    $1'
+
+    'New Line Longer':
+        'prefix': 'xnn'
+        'body': '\n| $1\n| $2'
+
+    'Doctest':
+        'prefix': 'xrdoc'
+        'body': '>>> print ("This is a Doctest block")\nThis is a Doctest block'
+
+    'Hlist':
+        'prefix': 'xhlist'
+        'body': '.. hlist::\n   :columns: 3\n\n   * A list of\n   * short items\n   * that should be\n   * displayed\n   * horizontally\n\n'
+
+    'Admonition Seealso':
+        'prefix': 'xseealso'
+        'body': '.. seealso::\n\n   $1.'
+
+    'Admonition Seealso Longer':
+        'prefix': 'xseealsoo'
+        'body': '.. seealso::\n   Module :py:mod:`zipfile`\n      Documentation of the :py:mod:`zipfile` standard module.\n\n   `GNU tar manual, Basic Tar Format <http://link>`_\n      Documentation for tar archive files, including GNU tar extensions.\n'
+
+    'Admonition Warning':
+        'prefix': 'xwarning'
+        'body': '.. warning::\n\n   $1.'
+
+    'Admonition Todo':
+        'prefix': 'xtodo'
+        'body': '.. admonition:: todo\n\n   $1'
+
+    'Admonition Info':
+        'prefix': 'xinfo'
+        'body': '.. admonition:: Info\n\n   $1'
+
+    'Math':
+        'prefix': 'xmath'
+        'body': '.. :math:: $1'
+
+    'Math Longer':
+        'prefix': 'xmaths'
+        'body': '.. math::\n\n    n_{\mathrm{offset}} = \sum_{k=0}^{N-1} s_k n_k\n'
+
+    'Topic':
+        'prefix': 'xtopic'
+        'body': '.. topic:: Topic\n\n    $1.'
+
+    'Sidebar':
+        'prefix': 'xsidebar'
+        'body': '.. sidebar:: Sidebar\n\n   $1.'
+
+    'Test Code':
+        'prefix': 'xtest'
+        'body': '.. testcode::\n\n    print("hi")\n\n.. testoutput::\n\n    hi\n'
+
+    'Class':
+        'prefix': 'xrclass'
+        'body': ':class:`~className` '
+
+    'Method':
+        'prefix': 'xmeth'
+        'body': ':meth:`~className.method`'
+
+    'Single Index':
+        'prefix': 'xsingle_index'
+        'body': '..  index::\nsingle: Pythagoras # gives bad>poetry and poetry>bad.'
+
+    'Paired Index':
+        'prefix': 'xpaired_index'
+        'body': '..  index::\npair: poetry; bad # gives bad>poetry and poetry>bad.'
+
+    'Frac Command':
+        'prefix': 'xfrac'
+        'body': '\frac{$1}{$2}'
+
+##==============================================================================
+##  SNIPPETS FOR JULIA
+##==============================================================================
+'.source.julia':
+    'Header':
+        'prefix': 'xhdr'
+        'body': '#!/usr/bin/julia\n# Author      : Bhishan Poudel; Physics PhD Student, Ohio University\n# Date        : $1\n# Last update : $2\n# Est time    : $3\n#\n$0'
+
+    # standard snippets
+
+    'println':
+        'prefix': 'println'
+        'body': 'println($1)\n$0'
+
+    'finally':
+        'prefix': 'xfinally'
+        'body': 'finally\n    $1\n$0'
+
+    'throw':
+        'prefix': 'xthrow'
+        'body': 'throw\n    $1\n$0'
+
+    'error':
+        'prefix': 'xerror'
+        'body': 'error("${1}")\n$0'
+
+    'warn':
+        'prefix': 'xwarn'
+        'body': 'warn("${1}")\n$0'
+
+    'info':
+        'prefix': 'xinfo'
+        'body': 'info("${1}")\n$0'
+
+    #  Bhishan's snippets
+    'print':
+        'prefix': 'xpr'
+        'body': 'println("$1 = ", $2)$0'
+
+
+    'pritln newline':
+        'prefix': 'xprn'
+        'body': 'println("\\\\n")$0'
+
+
+    'pritln("\ntype_here")':
+        'prefix': 'xprs'
+        'body': 'println("\\\\n$1")$0\n'
+
+    '@print ':
+        'prefix': 'xprr'
+        'body': '@printf "\\\\n $1  = %f" $0'
+
+    'for':
+        'prefix': 'xfor'
+        'body': 'for i in $1\n    $2\nend\n$0'
+
+    'while':
+        'prefix': 'xwhile'
+        'body': 'while $1\n    $2\nend\n$0'
+
+    'xife':
+        'prefix': 'if else'
+        'body': 'if $1\n    \nelse\n    $2\n\nend\n$0'
+
+    'ternary operator':
+        'prefix': 'tern'
+        'body': '$1 ? $2 : ${3:nothing}$0'
+
+
+    'using module':
+        'prefix': 'xuse'
+        'body': 'using $1\n$0'
+
+    'multiline comment':
+        'prefix': '#='
+        'body': '#=\n$1\n=#\n$0'
+
+    'try/catch':
+        'prefix': 'xtry'
+        'body': 'try\n    ${1:try_block}\ncatch e\n    $2\nend\n$0'
+
+    'docstring':
+        'prefix': 'xdoc'
+        'body': '"""$1"""$0'
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+
+
+##==============================================================================
+## Plain text Snippets
+## Above one are for Julia.
+##=============================================================================
+'.text.plain':
+    'diary':
+        'prefix': 'xhdr'
+        'body': """
+        ********************************************************************************
+        # ==============================================================================
+        # Date   : $1
+        # Summary: $2
+        # ==============================================================================
+        $0
+        """
+    'header':
+        'prefix': 'h2'
+        'body': 'Author: Bhishan Poudel\nDate  : $1, 2017\n\n$0'
+
+    'header2':
+        'prefix': 'h'
+        'body': 'Author: Bhishan Poudel\nDate  : $1, 2016\n\nTopic: $2\n=============================\n\n$0'
+
+    'topic':
+        'prefix': 't'
+        'body': '\n\n# =============================================================================\n# Date   : $1\n# Summary: $2\n# =============================================================================\n\n$0'
+
+    'single comment line':
+        'prefix': 'line'
+        'body': '# =============================================================================\n$0'
+
+    'single comment line typo':
+        'prefix': 'lien'
+        'body': '# =============================================================================\n$0'
+
+    'lines':
+        'prefix': 'lines'
+        'body': '##=======================================================================\n## $1\n\##=======================================================================$0'
+
+    'lines typo':
+        'prefix': 'liens'
+        'body': '##=======================================================================\n## $1\n\##=======================================================================$0'
+
+##==============================================================================
+##  reStructuredText Snippets
+##==============================================================================
+'.text.restructuredtext':
+    'Contents':
+        'prefix': 'xhdr'
+        'body': '.. contents:: Table of Contents\n   :depth: 3\n\n'
+
+    'Contents':
+        'prefix': 'xcontents'
+        'body': '.. contents:: Table of Contents\n   :depth: 3\n\n'
+
+    'Toc Tree':
+        'prefix': 'xtoc'
+        'body': '.. toctree::\n   :maxdepth: 4\n\n   $1'
+
+    'Header 1 #':
+        'prefix': 'xha'
+        'body': '$1\n################################################################################\n\n'
+
+    'Header 2 *':
+        'prefix': 'xhb'
+        'body': '$1\n********************************************************************************\n\n'
+
+    'Header 3 =':
+        'prefix': 'xhc'
+        'body': '$1\n================================================================================\n\n'
+
+    'Header 4 -':
+        'prefix': 'xhd'
+        'body': '$1\n--------------------------------------------------------------------------------\n\n'
+
+    'Header 5 ^':
+        'prefix': 'xhe'
+        'body': '$1\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n'
+
+    'Header 6 "':
+        'prefix': 'xhf'
+        'body': '$1\n""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""\n\n'
+
+    'Image':
+        'prefix': 'ximg'
+        'body': '.. image:: ../images/$1.png\n   :height: 100px\n   :width: 400 px\n   :align: center\n'
+
+    'Figure':
+        'prefix': 'xfig'
+        'body': '\n.. figure:: ../images/a.png\n    :width: 200px\n    :align: center\n    :height: 100px\n    :alt: alternate text\n    :figclass: align-center\n\n    This is caption.\n'
+
+    'Footnote':
+        'prefix': 'xfootnote'
+        'body': '[#f1]_  \n\n.. rubric:: Footnotes\n\n.. [#f1] Text of the first footnote.\n\n'
+
+    'Cite':
+        'prefix': 'xcite'
+        'body': '[book]_ \n\n.. [book] Name of book'
+
+    'Link':
+        'prefix': 'xlink'
+        'body': '`Link text <$1>`_'
+
+    'Link Two Lines':
+        'prefix': 'xlink2'
+        'body': '`a link`_.\n\n.. _a link: $1\n\n'
+
+    'Table':
+        'prefix': 'xtbl'
+        'body': '\n\n=====  =====  =======\nA      B      A and B\n=====  =====  =======\nF      F      F\nT      F      F\nF      T      F\nT      T      T\n=====  =====  =======\n\n'
+
+    'Table Large':
+        'prefix': 'xtbl2'
+        'body': '\n\n+------------------------+------------+----------+----------+\n| Header1                | Header 2   | Header 3 | Header 4 |\n+========================+============+==========+==========+\n| ..                     | 12         |   13     | 14       |\n+------------------------+------------+----------+----------+\n| 21                     | 22         | 23       |       24 |\n+------------------------+------------+----------+----------+\n\n'
+
+    'Subscript':
+        'prefix': 'xss'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sub:`2`\ O\n'
+
+    'Subscript':
+        'prefix': 'xsubscript'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sub:`2`\ O\n'
+
+    'Superscript':
+        'prefix': 'xsuperscript'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sup:`2`\ O\n'
+
+    'Superscript':
+        'prefix': 'xss2'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sup:`2`\ O\n'
+
+    'Code':
+        'prefix': 'xcode'
+        'body': '::\n\n    $1.'
+
+    'New Line':
+        'prefix': 'xn'
+        'body': '\n    $1'
+
+    'New Line Longer':
+        'prefix': 'xnn'
+        'body': '\n| $1\n| $2'
+
+    'Doctest':
+        'prefix': 'xdoc'
+        'body': '>>> print ("This is a Doctest block")\nThis is a Doctest block'
+
+    'Hlist':
+        'prefix': 'xhlist'
+        'body': '.. hlist::\n   :columns: 3\n\n   * A list of\n   * short items\n   * that should be\n   * displayed\n   * horizontally\n\n'
+
+    'Admonition Seealso':
+        'prefix': 'xseealso'
+        'body': '.. seealso::\n\n   $1.'
+
+    'Admonition Seealso Longer':
+        'prefix': 'xseealsoo'
+        'body': '.. seealso::\n   Module :py:mod:`zipfile`\n      Documentation of the :py:mod:`zipfile` standard module.\n\n   `GNU tar manual, Basic Tar Format <http://link>`_\n      Documentation for tar archive files, including GNU tar extensions.\n'
+
+    'Admonition Warning':
+        'prefix': 'xwarning'
+        'body': '.. warning::\n\n   $1.'
+
+    'Admonition Todo':
+        'prefix': 'xtodo'
+        'body': '.. admonition:: todo\n\n   $1'
+
+    'Admonition Info':
+        'prefix': 'xinfo'
+        'body': '.. admonition:: Info\n\n   $1'
+
+    'Math':
+        'prefix': 'xmath'
+        'body': '.. :math:: $1'
+
+    'Math Longer':
+        'prefix': 'xmaths'
+        'body': '.. math::\n\n    n_{\mathrm{offset}} = \sum_{k=0}^{N-1} s_k n_k\n'
+
+    'Topic':
+        'prefix': 'xtopic'
+        'body': '.. topic:: Topic\n\n    $1.'
+
+    'Sidebar':
+        'prefix': 'xsidebar'
+        'body': '.. sidebar:: Sidebar\n\n   $1.'
+
+    'Test Code':
+        'prefix': 'xtest'
+        'body': '.. testcode::\n\n    print("hi")\n\n.. testoutput::\n\n    hi\n'
+
+    'Class':
+        'prefix': 'xclass'
+        'body': ':class:`~className` '
+
+    'Method':
+        'prefix': 'xmeth'
+        'body': ':meth:`~className.method`'
+
+    'Single Index':
+        'prefix': 'xsingle_index'
+        'body': '..  index::\nsingle: Pythagoras # gives bad>poetry and poetry>bad.'
+
+    'Paired Index':
+        'prefix': 'xpaired_index'
+        'body': '..  index::\npair: poetry; bad # gives bad>poetry and poetry>bad.'
+
+    'Frac Command':
+        'prefix': 'xfrac'
+        'body': '\frac{$1}{$2}'
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+        
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+        
+##==============================================================================
+##  Markdown Snippets
+##==============================================================================        
+'.source.gfm':
+  'Insert Date':
+    'prefix': 'xdate'
+    'body': 'My name - $date'
+    'variables':
+      'date': '''
+        require moment
+        moment().format("YYYY-MM-DD")
+      '''
+
+  'Insert Date':
+    'prefix': 'xd'
+    'body': 'My name - $date'
+    'variables':
+      'date': '''
+        require date
+        date.date()
+      '''

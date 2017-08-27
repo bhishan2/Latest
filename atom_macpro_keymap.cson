@@ -1,0 +1,75 @@
+# Your keymap
+#
+# Atom keymaps work similarly to style sheets. Just as style sheets use
+# selectors to apply styles to elements, Atom keymaps use selectors to associate
+# keystrokes with events in specific contexts. Unlike style sheets however,
+# each selector can only be declared once.
+#
+# You can create a new keybinding in this file by typing "key" and then hitting
+# tab. (This did not work for me!)
+#
+# Here's an example taken from Atom's built-in keymap:
+#
+# 'atom-text-editor':
+#   'enter': 'editor:newline'
+#
+# 'atom-workspace':
+#   'ctrl-shift-p': 'core:move-up'
+#   'ctrl-p': 'core:move-down'
+#
+# You can find more information about keymaps in these guides:
+# * http://flight-manual.atom.io/using-atom/sections/basic-customization/#_customizing_keybindings
+# * http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/
+#
+# If you're having trouble with your keybindings not working, try the
+# Keybinding Resolver: `Cmd+.` on macOS and `Ctrl+.` on other platforms. See the
+# Debugging Guide for more information:
+# * http://flight-manual.atom.io/hacking-atom/sections/debugging/#check-the-keybindings
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+#
+#
+# Author: Bhishan Poudel
+# Date: Apr 2, 2016
+# Last Update: Aug 18, 2017 Fri
+'atom-text-editor:not([mini])':
+  # Atom basic tools
+  'shift-enter': 'script:run'
+  'alt-up': 'toolbar:toggle'
+  'alt-left': 'tree-view:toggle'  # sidebar showing first opened project
+  'cmd-;': 'command-palette:toggle'
+  # Line manipulations
+  'cmd-d': 'editor:duplicate-lines'
+  'cmd-k': 'editor:delete-line'
+  'cmd-/': 'editor:toggle-line-comments'
+  # Bookmarks
+  'cmd-1': 'bookmarks:jump-to-previous-bookmark'
+  'cmd-2': 'bookmarks:toggle-bookmark'
+  'cmd-3': 'bookmarks:jump-to-next-bookmark'
+  'cmd-9': 'bookmarks:view-all'
+  'cmd-0': 'bookmarks:clear-bookmarks'
+  'cmd-\'': 'advanced-open-file:toggle'
+  # Atom-shell-commands
+  'ctrl-9' : 'atom-shell-commands-config:error-next'
+  'ctrl-10': 'atom-shell-commands-config:error-prev'
+  # Mixed
+  'cmd-alt-s': 'spell-check:toggle'
+  'ctrl-cmd-m': 'bracket-matcher:select-inside-brackets'
+  'ctrl-alt-e': 'python-tools:select-all-string'
+  'alt-cmd-t': 'open-terminal-here:open-root'
+  'ctrl-shift-d': 'date:date'
+  'ctrl-alt-p': 'preview-inline:show'
+  #My custom commands **init.coffee**
+  'ctrl-shift-o': 'custom:open-todo-list'
+  'ctrl-p': 'custom:open-pros'
+  'ctrl-l': 'custom:open-prosLog'
+  'ctrl-r': 'custom:open-runjedimaster'
+  # open this package open file under cursor
+  'ctrl-o': 'open-this:here'
+
+# Custom command for markdown files
+'atom-text-editor[data-grammar="source gfm"]':
+  'ctrl-shift-a': 'custom:insert-timestamp'

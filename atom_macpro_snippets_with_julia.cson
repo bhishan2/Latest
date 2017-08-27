@@ -1,0 +1,1664 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+#  After installing project manager, ctrl alt p for settings, then type
+#  install, click install packages and themes, go to settings,
+#  search language-python we see scope source.python
+# Alternative, If toolbar activated, just click settings, and do same thing.
+#
+# To find source name go to preferences look for language and look scope.
+# e.g. search restructuredtext
+# it shows text.restructuredtext
+#
+##==============================================================================
+##          Python SNIPPETS
+##==============================================================================
+'.source.python':
+    'Example of snippet in atom':
+        'prefix': 'xeg'
+        'body': '''
+        This is line 1 and placeholder ${1:arg1}.
+        This is line 2 and another placeholder ${2:arg2}.
+        $0
+        '''
+        'description': '''
+        This description is optional.
+        This is an example of using snippets in Atom text editor.
+        My custom snippets starts with letter x.
+        To create snippets go to Atom > Snippets and add snippets.
+        To find the scope name go to Atom > preferences > packages >
+           type language > click settings > see things like source.c
+           DO NOT click on link, CLICK  settings.
+        '''
+
+    'Header':
+        'prefix': 'hdr'
+        'body': '#!python\n# -*- coding: utf-8 -*-#\n#\n# Author      : Bhishan Poudel; Physics Graduate Student, Ohio University\n# Date        : $1\n# Last update :\n# Est time    :\n\n# Imports\n$2$0'
+
+    'import multiprocessing':
+        'prefix': 'mp'
+        'body': 'mp=import multiprocessing as mp'
+
+    'import numpy':
+        'prefix': 'np'
+        'body': 'import numpy as np'
+
+    'import pandas':
+        'prefix': 'pd'
+        'body': 'import pandas as pd'
+
+    'import scipy':
+        'prefix': 'sp'
+        'body': 'import scipy as sp'
+
+    'import astropy':
+        'prefix': 'ap'
+        'body': 'import astropy.io'
+
+    'import matplotlib.pyplot':
+        'prefix': 'plt'
+        'body': 'import matplotlib.pyplot as plt'
+
+    'import astropy fits':
+        'prefix': 'fits'
+        'body': 'from astropy.io import fits'
+
+    'import astropy fits getheader':
+        'prefix': 'getheader'
+        'body': 'from astropy.io.fits import getheader'
+
+    'import astropy fits getval':
+        'prefix': 'getval'
+        'body': 'from astropy.io.fits import getval'
+
+    'import astropy fits getdata':
+        'prefix': 'getdata'
+        'body': 'from astropy.io.fits import getdata'
+
+    'print with format':
+        'prefix': 'prf'
+        'body': 'print( \'\{\}\'.format($1))$0'
+
+
+    'print ':
+        'prefix': 'pr'
+        'body': 'print($0)'
+
+    'print newline':
+        'prefix': 'prn'
+        'body': 'print("\\\\n")'
+
+    'numpy arange for integers':
+        'prefix': 'arange'
+        'body': 'np.arange($1, $2, step = $3) $0'
+
+    'read columns of file using numpy':
+        'prefix': 'readfile'
+        'body': 'infile = "$1"\nx = np.genfromtxt(infile, delimiter=None, usecols=(0),\\\n                  dtype=str, unpack=True)\ny = np.genfromtxt(infile, delimiter=None, usecols=(1),\\\n                  dtype=float, unpack=True)\n$0'
+
+    'fileread using pandas':
+        'prefix': 'filereadpd'
+        'body': 'infile = "$1"\ncolnames = ["col0", "col1"]\ndf = pd.read_csv(infile, sep="\s+", header=None, skiprows=0,\n                 comment="#", names=colnames, usecols=(0, 1))\n\nprint("\{\} \{\} \{\}".format("input file header: \\n", df.head(), "\\n"))$0'
+
+    'time taken to run program':
+        'prefix': 'time'
+        'body': 'import time\n\n# beginning time\nprogram_begin_time = time.time()\nbegin_ctime        = time.ctime()\n\n\n# print the time taken\nprogram_end_time = time.time()\nend_ctime        = time.ctime()\nseconds          = program_end_time - program_begin_time\nm, s             = divmod(seconds, 60)\nh, m             = divmod(m, 60)\nd, h             = divmod(h, 24)\nprint("\\nBegin time: ", begin_ctime)\nprint("End   time: ",  end_ctime, \\n")\nprint("Time taken: \{0: .0f\} days, \{1: .0f\} hours,\\\n      \{2: .0f\} minutes, \{3: f\} seconds.".format(d, h, m, s))\n'
+
+    'function':
+        'prefix': 'def'
+        'body': 'def $1($2):\n    """$3"""\n    $4\n    return ${5:None}$0'
+
+    'fn with args':
+        'prefix': 'deff'
+        'body': 'def $1($2):\n    """$3\n\n    Args:\n        $2: $5\n\n    Returns: $6\n\n    """\n    #  $7\n    return ${8:None}$0'
+
+
+    'print':
+        'prefix': 'pr'
+        'body': 'print($1)$0'
+
+
+    'print 2 decimal points':
+        'prefix': 'prr'
+        'body': 'print(\'\{\} \{:.2f\} \{\}\'.format(\'$1 = \', $2, \'$3\'))$0'
+
+
+    '2 decimal points for all elements of list':
+        'prefix': 'prl'
+        'body': 'print([float(str(np.round((x), 2))) for x in $1])'
+
+    'docstring':
+        'prefix': 'doc'
+        'body': '"""$1"""$0'
+
+    'def main':
+        'prefix': 'main'
+        'body': 'def main():\n    """Run main function."""\n    $1\n\nif __name__ == "__main__":\n    main()$0'
+
+    'if __name__ == __main__':
+        'prefix': 'name'
+        'body': 'if __name__ == "__main__":\n    #\n    $1()'
+
+    'def main with time':
+        'prefix': 'maint'
+        'body': 'def main():\n    """Run main function."""\n    $1\n\nif __name__ == "__main__":\n    import time\n\n    # Beginning time\n    program_begin_time = time.time()\n    begin_ctime        = time.ctime()\n\n    #  Run the main program\n    main()\n\n    # Print the time taken\n    program_end_time = time.time()\n    end_ctime        = time.ctime()\n    seconds          = program_end_time - program_begin_time\n    m, s             = divmod(seconds, 60)\n    h, m             = divmod(m, 60)\n    d, h             = divmod(h, 24)\n    print("\\nBegin time: ", begin_ctime)\n    print("End   time: ", end_ctime, "\\\\n")\n    print("Time taken: \{0: .0f\} days, \{1: .0f\} hours, \\\\\n      \{2: .0f\} minutes, \{3: f\} seconds.".format(d, h, m, s))\n$0'
+
+    'print(a)':
+        'prefix': 'pra'
+        'body': 'print(a)'
+
+
+    'Dictionary Comprehension':
+        'prefix': 'dc'
+        'body': '{${1:key}: ${2:value} for ${3:key}, ${4:value} in ${5:variable}}'
+
+    'List Comprehension':
+        'prefix': 'lc'
+        'body': '[${1:value} for ${2:value} in ${3:variable}]'
+
+    'Print Dictionary Key Values':
+        'prefix': 'prd'
+        'body': 'for key, value in config.items():\n    print (key, " = ", value)'
+
+    'Print List Elements':
+        'prefix': 'prl'
+        'body': 'for _ in $1:\n    print(_)'
+
+    'From Future Import Libraries':
+        'prefix': 'fut'
+        'body': '''from __future__ import print_function, unicode_literals, division, absolute_import'''
+
+    'Print a':
+        'prefix': 'pra'
+        'body': """print('a = ', a)"""
+
+    'Print b':
+        'prefix': 'prb'
+        'body': """print('b = ', b) """
+
+    'Print c':
+        'prefix': 'prc'
+        'body': """print('c = ', c) """
+
+    '':
+        'prefix': ''
+        'body': """ """
+
+    '':
+        'prefix': ''
+        'body': """ """
+
+    '':
+        'prefix': ''
+        'body': """ """
+
+    '':
+        'prefix': ''
+        'body': """ """
+
+
+     #=============== For rest docstrings in python ===============
+    'Conents':
+        'prefix': 'contents'
+        'body': '.. contents:: Table of Contents\n   :depth: 3\n\n'
+
+    'Toc Tree':
+        'prefix': 'toc'
+        'body': '.. toctree::\n   :maxdepth: 4\n\n   $1'
+
+    'Header 1 #':
+        'prefix': 'ha'
+        'body': '$1\n################################################################################\n\n'
+
+    'Header 2 *':
+        'prefix': 'hb'
+        'body': '$1\n********************************************************************************\n\n'
+
+    'Header 3 =':
+        'prefix': 'hc'
+        'body': '$1\n================================================================================\n\n'
+
+    'Header 4 -':
+        'prefix': 'hd'
+        'body': '$1\n--------------------------------------------------------------------------------\n\n'
+
+    'Header 5 ^':
+        'prefix': 'he'
+        'body': '$1\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n'
+
+    'Header 6 "':
+        'prefix': 'hf'
+        'body': '$1\n""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""\n\n'
+
+    'Image':
+        'prefix': 'img'
+        'body': '.. image:: ../images/$1.png\n   :height: 100px\n   :width: 400 px\n   :align: center\n'
+
+    'Figure':
+        'prefix': 'fig'
+        'body': '\n.. figure:: ../images/a.png\n    :width: 200px\n    :align: center\n    :height: 100px\n    :alt: alternate text\n    :figclass: align-center\n\n    This is caption.\n'
+
+    'Footnote':
+        'prefix': 'footnote'
+        'body': '[#f1]_  \n\n.. rubric:: Footnotes\n\n.. [#f1] Text of the first footnote.\n\n'
+
+    'Cite':
+        'prefix': 'cite'
+        'body': '[book]_ \n\n.. [book] Name of book'
+
+    'Link':
+        'prefix': 'link'
+        'body': '`Link text <$1>`_'
+
+    'Link Two Lines':
+        'prefix': 'linkk'
+        'body': '`a link`_.\n\n.. _a link: $1\n\n'
+
+    'Table':
+        'prefix': 'tbl'
+        'body': '\n\n=====  =====  =======\nA      B      A and B\n=====  =====  =======\nF      F      F\nT      F      F\nF      T      F\nT      T      T\n=====  =====  =======\n\n'
+
+    'Table Large':
+        'prefix': 'tbll'
+        'body': '\n\n+------------------------+------------+----------+----------+\n| Header1                | Header 2   | Header 3 | Header 4 |\n+========================+============+==========+==========+\n| ..                     | 12         |   13     | 14       |\n+------------------------+------------+----------+----------+\n| 21                     | 22         | 23       |       24 |\n+------------------------+------------+----------+----------+\n\n'
+
+    'Subscript':
+        'prefix': 'ss'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sub:`2`\ O\n'
+
+    'Subscript':
+        'prefix': 'subscript'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sub:`2`\ O\n'
+
+    'Superscript':
+        'prefix': 'superscript'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sup:`2`\ O\n'
+
+    'Superscript':
+        'prefix': 'ss2'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sup:`2`\ O\n'
+
+    'Code':
+        'prefix': 'code'
+        'body': '::\n\n    $1.'
+
+    'New Line':
+        'prefix': 'n'
+        'body': '\n    $1'
+
+    'New Line Longer':
+        'prefix': 'nn'
+        'body': '\n| $1\n| $2'
+
+    'Doctest':
+        'prefix': 'rdoc'
+        'body': '>>> print ("This is a Doctest block")\nThis is a Doctest block'
+
+    'Hlist':
+        'prefix': 'hlist'
+        'body': '.. hlist::\n   :columns: 3\n\n   * A list of\n   * short items\n   * that should be\n   * displayed\n   * horizontally\n\n'
+
+    'Admonition Seealso':
+        'prefix': 'seealso'
+        'body': '.. seealso::\n\n   $1.'
+
+    'Admonition Seealso Longer':
+        'prefix': 'seealsoo'
+        'body': '.. seealso::\n   Module :py:mod:`zipfile`\n      Documentation of the :py:mod:`zipfile` standard module.\n\n   `GNU tar manual, Basic Tar Format <http://link>`_\n      Documentation for tar archive files, including GNU tar extensions.\n'
+
+    'Admonition Warning':
+        'prefix': 'warning'
+        'body': '.. warning::\n\n   $1.'
+
+    'Admonition Todo':
+        'prefix': 'todo'
+        'body': '.. admonition:: todo\n\n   $1'
+
+    'Admonition Info':
+        'prefix': 'info'
+        'body': '.. admonition:: Info\n\n   $1'
+
+    'Math':
+        'prefix': 'math'
+        'body': '.. :math:: $1'
+
+    'Math Longer':
+        'prefix': 'maths'
+        'body': '.. math::\n\n    n_{\mathrm{offset}} = \sum_{k=0}^{N-1} s_k n_k\n'
+
+    'Topic':
+        'prefix': 'topic'
+        'body': '.. topic:: Topic\n\n    $1.'
+
+    'Sidebar':
+        'prefix': 'sidebar'
+        'body': '.. sidebar:: Sidebar\n\n   $1.'
+
+    'Test Code':
+        'prefix': 'test'
+        'body': '.. testcode::\n\n    print("hi")\n\n.. testoutput::\n\n    hi\n'
+
+    'Class':
+        'prefix': 'rclass'
+        'body': ':class:`~className` '
+
+    'Method':
+        'prefix': 'meth'
+        'body': ':meth:`~className.method`'
+
+    'Single Index':
+        'prefix': 'single_index'
+        'body': '..  index::\nsingle: Pythagoras # gives bad>poetry and poetry>bad.'
+
+    'Paired Index':
+        'prefix': 'paired_index'
+        'body': '..  index::\npair: poetry; bad # gives bad>poetry and poetry>bad.'
+
+    'Frac Command':
+        'prefix': 'frac'
+        'body': '\frac{$1}{$2}'
+    #---------------------Snippets added later -------------------------
+    'MacOS Desktop Nofitication':
+            'prefix': 'notify'
+            'body': '''
+            def notify():
+            \ \ \ \ """Using desktop notifications in macos.
+
+            \ \ \ \ ..note::
+
+            \ \ \ \ To keep the notification button until you close it chage the
+            \ \ \ \ system preferences of the notifications.
+            \ \ \ \ System Preferences > Nofitications > Script Editor > Check all and choose alert
+
+            \ \ \ \ """
+            \ \ \ \ osa = r\'\'\'osascript -e \'display notification \'\'\'
+            \ \ \ \ tm = time.ctime()
+            \ \ \ \ msg = "\\\\" Program finished on \\\\n {}\\\\"".format(tm)
+            \ \ \ \ title = r\'\'\'with title "Notification"\'\'\'
+            \ \ \ \ notif = osa + msg + title + "\'&"
+            \ \ \ \ subprocess.call(notif, shell=True)
+            $0
+            '''
+# Above this is snippets for python
+##==============================================================================
+##  SNIPPETS FOR JULIA
+##==============================================================================
+'.source.julia':
+    'Header':
+        'prefix': 'xhdr'
+        'body': '#!/usr/bin/julia\n# Author      : Bhishan Poudel; Physics PhD Student, Ohio University\n# Date        : $1\n# Last update : $2\n# Est time    : $3\n#\n$0'
+
+    # standard snippets for Julia
+
+    'println':
+        'prefix': 'println'
+        'body': 'println($1)\n$0'
+
+    'finally':
+        'prefix': 'xfinally'
+        'body': 'finally\n    $1\n$0'
+
+    'throw':
+        'prefix': 'xthrow'
+        'body': 'throw\n    $1\n$0'
+
+    'error':
+        'prefix': 'xerror'
+        'body': 'error("${1}")\n$0'
+
+    'warn':
+        'prefix': 'xwarn'
+        'body': 'warn("${1}")\n$0'
+
+    'info':
+        'prefix': 'xinfo'
+        'body': 'info("${1}")\n$0'
+
+    #  Bhishan's snippets for Julia
+    'print':
+        'prefix': 'xpr'
+        'body': 'println("$1 = ", $2)$0'
+
+
+    'pritln newline':
+        'prefix': 'xprn'
+        'body': 'println("\\\\n")$0'
+
+
+    'pritln("\ntype_here")':
+        'prefix': 'xprs'
+        'body': 'println("\\\\n$1")$0\n'
+
+    '@print ':
+        'prefix': 'xprr'
+        'body': '@printf "\\\\n $1  = %f" $0'
+
+    'for':
+        'prefix': 'xfor'
+        'body': 'for i in $1\n    $2\nend\n$0'
+
+    'while':
+        'prefix': 'xwhile'
+        'body': 'while $1\n    $2\nend\n$0'
+
+    'xife':
+        'prefix': 'if else'
+        'body': 'if $1\n    \nelse\n    $2\n\nend\n$0'
+
+    'ternary operator':
+        'prefix': 'tern'
+        'body': '$1 ? $2 : ${3:nothing}$0'
+
+
+    'using module':
+        'prefix': 'xuse'
+        'body': 'using $1\n$0'
+
+    'multiline comment':
+        'prefix': '#='
+        'body': '#=\n$1\n=#\n$0'
+
+    'try/catch':
+        'prefix': 'xtry'
+        'body': 'try\n    ${1:try_block}\ncatch e\n    $2\nend\n$0'
+
+    'docstring':
+        'prefix': 'xdoc'
+        'body': '"""$1"""$0'
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+
+# Above snippets are for Julia
+##==============================================================================
+## Plain text Snippets
+## Above one are for Julia.
+##=============================================================================
+'.text.plain':
+    'diary':
+        'prefix': 'xhdr'
+        'body': """
+        ********************************************************************************
+        # ==============================================================================
+        # Date   : $1
+        # Summary: $2
+        # ==============================================================================
+        $0
+        """
+    'header':
+        'prefix': 'xh2'
+        'body': 'Author: Bhishan Poudel\nDate  : $1, 2017\n\n$0'
+
+    'header2':
+        'prefix': 'xh'
+        'body': 'Author: Bhishan Poudel\nDate  : $1, 2017\n\nTopic: $2\n=============================\n\n$0'
+
+    'topic':
+        'prefix': 'xt'
+        'body': '\n\n# =============================================================================\n# Date   : $1\n# Summary: $2\n# =============================================================================\n\n$0'
+
+    'single comment line':
+        'prefix': 'xline'
+        'body': '# =============================================================================\n$0'
+
+    'single comment line typo':
+        'prefix': 'xlien'
+        'body': '# =============================================================================\n$0'
+
+    'lines':
+        'prefix': 'xlines'
+        'body': '##=======================================================================\n## $1\n\##=======================================================================$0'
+
+    'lines typo':
+        'prefix': 'xliens'
+        'body': '##=======================================================================\n## $1\n\##=======================================================================$0'
+    '1 spaces':
+        'prefix': '1s'
+        'body': '\\\\ '
+    '2 spaces':
+        'prefix': '2s'
+        'body': '\\\\ \\\\ '
+    '1 spaces':
+        'prefix': '3s'
+        'body': '\\\\ \\\\ \\\\ '
+    '4 spaces':
+        'prefix': '4s'
+        'body': '\\\\ \\\\ \\\\ \\\\ '
+    '5 spaces':
+        'prefix': '5s'
+        'body': '\\\\ \\\\ \\\\ \\\\ \\\\ '
+    '6 spaces':
+        'prefix': '6s'
+        'body': '\\\\ \\\\ \\\\ \\\\ \\\\ \\\\ '
+    '7 spaces':
+        'prefix': '7s'
+        'body': '\\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ '
+    '8 spaces':
+        'prefix': '8s'
+        'body': '\\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ '
+    '9 spaces':
+        'prefix': '9s'
+        'body': '\\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ '
+    '10 spaces':
+        'prefix': '10s'
+        'body': '\\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ \\\\ '
+##==============================================================================
+##  reStructuredText Snippets
+##==============================================================================
+'.text.restructuredtext':
+    'Contents':
+        'prefix': 'xhdr'
+        'body': '.. contents:: Table of Contents\n   :depth: 3\n\n'
+
+    'Contents':
+        'prefix': 'xcontents'
+        'body': '.. contents:: Table of Contents\n   :depth: 3\n\n'
+
+    'Toc Tree':
+        'prefix': 'xtoc'
+        'body': '.. toctree::\n   :maxdepth: 4\n\n   $1'
+
+    'Header 1 #':
+        'prefix': 'xha'
+        'body': '$1\n################################################################################\n\n'
+
+    'Header 2 *':
+        'prefix': 'xhb'
+        'body': '$1\n********************************************************************************\n\n'
+
+    'Header 3 =':
+        'prefix': 'xhc'
+        'body': '$1\n================================================================================\n\n'
+
+    'Header 4 -':
+        'prefix': 'xhd'
+        'body': '$1\n--------------------------------------------------------------------------------\n\n'
+
+    'Header 5 ^':
+        'prefix': 'xhe'
+        'body': '$1\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n'
+
+    'Header 6 "':
+        'prefix': 'xhf'
+        'body': '$1\n""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""\n\n'
+
+    'Image':
+        'prefix': 'ximg'
+        'body': '.. image:: ../images/$1.png\n   :height: 100px\n   :width: 400 px\n   :align: center\n'
+
+    'Figure':
+        'prefix': 'xfig'
+        'body': '\n.. figure:: ../images/a.png\n    :width: 200px\n    :align: center\n    :height: 100px\n    :alt: alternate text\n    :figclass: align-center\n\n    This is caption.\n'
+
+    'Footnote':
+        'prefix': 'xfootnote'
+        'body': '[#f1]_  \n\n.. rubric:: Footnotes\n\n.. [#f1] Text of the first footnote.\n\n'
+
+    'Cite':
+        'prefix': 'xcite'
+        'body': '[book]_ \n\n.. [book] Name of book'
+
+    'Link':
+        'prefix': 'xlink'
+        'body': '`Link text <$1>`_'
+
+    'Link Two Lines':
+        'prefix': 'xlink2'
+        'body': '`a link`_.\n\n.. _a link: $1\n\n'
+
+    'Table':
+        'prefix': 'xtbl'
+        'body': '\n\n=====  =====  =======\nA      B      A and B\n=====  =====  =======\nF      F      F\nT      F      F\nF      T      F\nT      T      T\n=====  =====  =======\n\n'
+
+    'Table Large':
+        'prefix': 'xtbl2'
+        'body': '\n\n+------------------------+------------+----------+----------+\n| Header1                | Header 2   | Header 3 | Header 4 |\n+========================+============+==========+==========+\n| ..                     | 12         |   13     | 14       |\n+------------------------+------------+----------+----------+\n| 21                     | 22         | 23       |       24 |\n+------------------------+------------+----------+----------+\n\n'
+
+    'Subscript':
+        'prefix': 'xss'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sub:`2`\ O\n'
+
+    'Subscript':
+        'prefix': 'xsubscript'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sub:`2`\ O\n'
+
+    'Superscript':
+        'prefix': 'xsuperscript'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sup:`2`\ O\n'
+
+    'Superscript':
+        'prefix': 'xss2'
+        'body': '|H2O|\n\n.. |H2O| replace:: H\ :sup:`2`\ O\n'
+
+    'Code':
+        'prefix': 'xcode'
+        'body': '::\n\n    $1.'
+
+    'New Line':
+        'prefix': 'xn'
+        'body': '\n    $1'
+
+    'New Line Longer':
+        'prefix': 'xnn'
+        'body': '\n| $1\n| $2'
+
+    'Doctest':
+        'prefix': 'xdoc'
+        'body': '>>> print ("This is a Doctest block")\nThis is a Doctest block'
+
+    'Hlist':
+        'prefix': 'xhlist'
+        'body': '.. hlist::\n   :columns: 3\n\n   * A list of\n   * short items\n   * that should be\n   * displayed\n   * horizontally\n\n'
+
+    'Admonition Seealso':
+        'prefix': 'xseealso'
+        'body': '.. seealso::\n\n   $1.'
+
+    'Admonition Seealso Longer':
+        'prefix': 'xseealsoo'
+        'body': '.. seealso::\n   Module :py:mod:`zipfile`\n      Documentation of the :py:mod:`zipfile` standard module.\n\n   `GNU tar manual, Basic Tar Format <http://link>`_\n      Documentation for tar archive files, including GNU tar extensions.\n'
+
+    'Admonition Warning':
+        'prefix': 'xwarning'
+        'body': '.. warning::\n\n   $1.'
+
+    'Admonition Todo':
+        'prefix': 'xtodo'
+        'body': '.. admonition:: todo\n\n   $1'
+
+    'Admonition Info':
+        'prefix': 'xinfo'
+        'body': '.. admonition:: Info\n\n   $1'
+
+    'Math':
+        'prefix': 'xmath'
+        'body': '.. :math:: $1'
+
+    'Math Longer':
+        'prefix': 'xmaths'
+        'body': '.. math::\n\n    n_{\mathrm{offset}} = \sum_{k=0}^{N-1} s_k n_k\n'
+
+    'Topic':
+        'prefix': 'xtopic'
+        'body': '.. topic:: Topic\n\n    $1.'
+
+    'Sidebar':
+        'prefix': 'xsidebar'
+        'body': '.. sidebar:: Sidebar\n\n   $1.'
+
+    'Test Code':
+        'prefix': 'xtest'
+        'body': '.. testcode::\n\n    print("hi")\n\n.. testoutput::\n\n    hi\n'
+
+    'Class':
+        'prefix': 'xclass'
+        'body': ':class:`~className` '
+
+    'Method':
+        'prefix': 'xmeth'
+        'body': ':meth:`~className.method`'
+
+    'Single Index':
+        'prefix': 'xsingle_index'
+        'body': '..  index::\nsingle: Pythagoras # gives bad>poetry and poetry>bad.'
+
+    'Paired Index':
+        'prefix': 'xpaired_index'
+        'body': '..  index::\npair: poetry; bad # gives bad>poetry and poetry>bad.'
+
+    'Frac Command':
+        'prefix': 'xfrac'
+        'body': '\frac{$1}{$2}'
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+    '':
+        'prefix': 'x'
+        'body': ''
+
+
+
+##==============================================================================
+##  Markdown Snippets
+##==============================================================================
+'.source.gfm':
+  'Insert Date':
+    'prefix': 'xdate'
+    'body': 'My name - $date'
+    'variables':
+      'date': '''
+        require moment
+        moment().format("YYYY-MM-DD")
+      '''
+
+  'Insert Date':
+    'prefix': 'xd'
+    'body': 'My name - $date'
+    'variables':
+      'date': '''
+        require date
+        date.date()
+      '''
+
+##==============================================================================
+##  Latex Snippets
+## h=eta q=theta f=phi c=chi y=psi w=omega t=tau x=xi
+##==============================================================================
+# 1. My Snippets 2. Sections 3. Environments 4. Elements e.g. listing page
+# 5. Math Symbols 6. Greek Letters and Capital Greek Letters 7. Bold Grk Letters
+# 8. Dollar Enclosed Greek Letters 9. Dollar Enclosed Bold Greek Letters
+#
+# Greek Alphabet
+# 1. alpha beta gamma delta epsilon
+# 2. zeta eta=h
+# 3. theta=q
+# 4. iota kappa lambda
+# 5. mu nu xi omicron
+# 6. pi rho sigma tau upsilon
+# 7. phi=f
+# 8. chi=c psi=y omega=w
+'.text.tex.latex':
+  'Figure Environement':
+    'prefix': 'fig'
+    'body': '''
+    \\\\begin{figure}[ht!]\label{[fig:$1]}
+        \\\\includegraphics[width=10cm,height=15cm]{figures/$2.jpeg}
+        \\\\caption{$3}
+    \\\\end{figure}
+    '''
+  # My snippets
+  'Double Dollars':
+    'prefix': '$'
+    'body': '\$$1\$$0'
+  'Easy List & &&':
+    'prefix': 'list'
+    'body': '''
+            \\\\begin{easylist}
+
+              & {$1}
+              & {$2}
+              & {$3}
+            \\\\end{easylist}
+            '''
+  'Fraction':
+    'prefix': 'fr'
+    'body': '\\\\frac{$1}{$2}'
+  'qquad':
+    'prefix': 'qq'
+    'body': '\\\\qquad\ '
+  'textbf':
+    'prefix': 'tbf'
+    'body': '\\\\textbf{$1}  $2  \\\\\\\\'
+  'integral':
+    'prefix': 'int'
+    'body': '\\\\int\ '
+  'integral with limits':
+    'prefix': 'intt'
+    'body': '\\\\int_{$1}{$2}\ '
+  'mass of sun':
+    'prefix': 'msun'
+    'body': 'M_\{\\\\\\odot\}\ '
+  'mass of sun dollar enclosed':
+    'prefix': 'xmsun'
+    'body': '\$M_\{\\\\\\odot\}\$'
+  'radius of sun':
+    'prefix': 'rsun'
+    'body': 'R_\{\\\\\\odot\}\ '
+  'radius of sun dollar enclosed':
+    'prefix': 'xrsun'
+    'body': '\$R_\{\\\\\\odot\}\$'
+  #-----------------------------------------------------------------------------
+  # Sections
+  'Part':
+    'prefix': 'part'
+    'body': '''
+    \\paragraph{${1:part name}}\n\\label{part:${1:part label}}\n$2
+    '''
+  'Chapter':
+    'prefix': 'cha'
+    'body': '''
+    \\chapter{${1:chapter name}}\n\\label{chap:${1:chapter label}}\n$2
+    '''
+  'Section':
+    'prefix': 'sec'
+    'body': '''
+    %
+    %
+    %#******************************************************************************
+    %#==============================================================================
+    %#          Section : $1
+    %#==============================================================================
+    %#******************************************************************************
+    %
+    %
+    \\\\\\section{$1}\\\\label{sec:$2}
+    '''
+  'Sub Section':
+    'prefix': 'sub'
+    'body': '''
+    %
+    %
+    %#------------------------------------------------------------------------------
+    %#          Subsection 1a: $1
+    %#------------------------------------------------------------------------------
+    %
+    %
+    \\\\\\subsection{$1}\\\\\\label{subsec:$2}\n$0
+    '''
+  'Sub Sub Section':
+    'prefix': 'subsub'
+    'body': '''
+    %
+    %
+    %```````````````````````````````````````````````````````````````````````````````
+    %         Subsubsection : ${1:subsubsection name}
+    %```````````````````````````````````````````````````````````````````````````````
+    %
+    \\\\subsubsection{$1}\\\\label{subsusb:${2}}\n$0
+    '''
+  'Paragraph':
+    'prefix': 'par'
+    'body': '''
+    \\paragraph{${1:paragraph name}}\n\\label{par:${1:paragraph label}}\n$2
+    '''
+  'Sub Paragraph':
+    'prefix': 'subp'
+    'body': '''
+    \\subparagraph{${1:subparagraph name}}\n\\label{subp:${1:subparagraph label}}\n$2
+    '''
+  #-----------------------------------------------------------------------------
+  # Environements
+  'Align(ed)':
+    'prefix': 'ali'
+    'body': '\\begin{align}\n\t$1\n\\end{align}'
+  'Description':
+    'prefix': 'desc'
+    'body': '\\begin{description}\n\t\\item[$1]$2\n\\end{description}'
+  'Enumerate':
+    'prefix': 'enum'
+    'body': '\\begin{enumerate}\n\t\\item $1\n\\end{enumerate}'
+  'Itemize':
+    'prefix': 'item'
+    'body': '\\begin{itemize}\n\t\\item $1\n\\end{itemize}'
+  'Split':
+    'prefix': 'spl'
+    'body': '\\begin{split}\n\t$0\n\\end{split}'
+  'Equation':
+    'prefix': 'eq'
+    'body': '\\\\begin{equation}\\\\label{[eq:$1]}\n\t$2\n\\\\end{equation}'
+  'Gather(ed)':
+      'prefix': 'gat'
+      'body': '\\begin{gather}\n\t$0\n\\end{gather}'
+  'Cases':
+      'prefix': 'cas'
+      'body': '\\begin{cases}\n\t${1:equation}, &\\text{ if }${2:case}\\\\\n\t$0\n\\end{cases}'
+  #-----------------------------------------------------------------------------
+  # Elements
+  'Listing':
+    'prefix': 'listing'
+    'body': '${1:Listing}~\\ref{${2:lst:}}$0'
+  'Page':
+    'prefix': 'page'
+    'body': '${1:page}~\\pageref{$2}$0'
+  'Table':
+    'prefix': 'table'
+    'body': '${1:Table}~\\ref{${2:tab:}}$0'
+  #-----------------------------------------------------------------------------
+  # Math Symbols
+  'forall':
+    'prefix': 'V'
+    'body': '\\\\forall\ '
+  'exists':
+    'prefix': 'ex'
+    'body': '\\\\exists\ '
+  'setminus':
+    'prefix': 'sm'
+    'body': '\\\\setminus\ '
+  'ldots':
+    'prefix': 'ld'
+    'body': '\\\\ldots\ '
+  'cdot':
+    'prefix': 'cd'
+    'body': '\\\\cdot\ '
+  'langle':
+    'prefix': 'la'
+    'body': '\\\\langle\ '
+  'rangle':
+    'prefix': 'ra'
+    'body': '\\\\rangle\ '
+  'cup':
+    'prefix': 'cu'
+    'body': '\\\\cup\ '
+  'cap':
+    'prefix': 'ca'
+    'body': '\\\\cap\ '
+  'bigcap':
+    'prefix': 'bca'
+    'body': '\\\\bigcap\ '
+  'int':
+    'prefix': 'in'
+    'body': '\\\\int\ '
+  'infty':
+    'prefix': 'inf'
+    'body': '\\\\infty\ '
+  'sum':
+    'prefix': 'su'
+    'body': '\\\\sum'
+  'quad':
+    'prefix': 'qd'
+    'body': '\\\\quad'
+  'qquad':
+    'prefix': 'qqd'
+    'body': '\\\\qquad'
+  'prod':
+    'prefix': 'pr'
+    'body': '\\\\prod'
+  'mathit':
+    'prefix': 'mit'
+    'body': '\\mathit{$1}$0'
+  'mathbf':
+    'prefix': 'mbf'
+    'body': '\\mathbf{$1}$0'
+  'mathbb':
+    'prefix': 'mbb'
+    'body': '\\mathbb{$1}$0'
+  'frac{}{}':
+    'prefix': 'fra'
+    'body': '\\\\frac{$1}{$2}$0'
+  #-----------------------------------------------------------------------------
+  # Greek Letters and Capital Greek Letters
+  'alpha':
+    'prefix': 'a'
+    'body': '\\\\alpha\ '
+  'beta':
+    'prefix': 'b'
+    'body': '\\\\beta\ '
+  'gamma':
+    'prefix': 'g'
+    'body': '\\\\gamma\ '
+  'delta':
+    'prefix': 'd'
+    'body': '\\\\delta\ '
+  'epsilon':
+    'prefix': 'e'
+    'body': '\\\\epsilon\ '
+  'zeta':
+    'prefix': 'z'
+    'body': '\\\\zeta\ '
+  'eta':
+    'prefix': 'h'
+    'body': '\\\\eta\ '
+  'theta':
+    'prefix': 'q'
+    'body': '\\\\theta\ '
+  'iota':
+    'prefix': 'i'
+    'body': '\\\\iota\ '
+  'kappa':
+    'prefix': 'k'
+    'body': '\\\\kappa\ '
+  'lambda':
+    'prefix': 'l'
+    'body': '\\\\lambda\ '
+  'mu':
+    'prefix': 'm'
+    'body': '\\\\mu\ '
+  'nu':
+    'prefix': 'n'
+    'body': '\\\\nu\ '
+  'xi':
+    'prefix': 'x'
+    'body': '\\\\xi\ '
+  'pi':
+    'prefix': 'p'
+    'body': '\\\\pi\ '
+  'rho':
+    'prefix': 'r'
+    'body': '\\\\rho\ '
+  'sigma':
+    'prefix': 's'
+    'body': '\\\\sigma\ '
+  'tau':
+    'prefix': 't'
+    'body': '\\\\tau\ '
+  'upsilon':
+    'prefix': 'u'
+    'body': '\\\\upsilon\ '
+  'phi':
+    'prefix': 'f'
+    'body': '\\\\phi\ '
+  'chi':
+    'prefix': 'c'
+    'body': '\\\\chi\ '
+  'psi':
+    'prefix': 'y'
+    'body': '\\\\psi\ '
+  'omega':
+    'prefix': 'w'
+    'body': '\\\\omega\ '
+  'digamma':
+    'prefix': 'v'
+    'body': '\\\\digamma\ '
+  'Gamma':
+    'prefix': 'G'
+    'body': '\\\\Gamma\ '
+  'Delta':
+    'prefix': 'D'
+    'body': '\\\\Delta\ '
+  'Theta':
+    'prefix': 'Q'
+    'body': '\\\\Theta\ '
+  'Lambda':
+    'prefix': 'L'
+    'body': '\\\\SLambda\ '
+  'Xi':
+    'prefix': 'X'
+    'body': '\\\\SXi\ '
+  'Pi':
+    'prefix': 'P'
+    'body': '\\\\SPi\ '
+  'Sigma':
+    'prefix': 'S'
+    'body': '\\\\Sigma\ '
+  'Phi':
+    'prefix': 'F'
+    'body': '\\\\Phi\ '
+  'Psi':
+    'prefix': 'Y'
+    'body': '\\\\Psi\ '
+  #-----------------------------------------------------------------------------
+  # Bold Greek Letters
+  ' Bold alpha':
+    'prefix': 'ba'
+    'body': '\\\\\\boldsymbol{\\\\alpha\}\ '
+  'Bold beta':
+    'prefix': 'bb'
+    'body': '\\\\\\boldsymbol{\\\\beta\}\ '
+  'Bold gamma':
+    'prefix': 'bg'
+    'body': '\\\\\\boldsymbol{\\\\gamma\}\ '
+  'Bold delta':
+    'prefix': 'bd'
+    'body': '\\\\\\boldsymbol{\\\\delta\}\ '
+  'Bold epsilon':
+    'prefix': 'be'
+    'body': '\\\\\\boldsymbol{\\\\epsilon\}\ '
+  'Bold zeta':
+    'prefix': 'bz'
+    'body': '\\\\\\boldsymbol{\\\\zeta\}\ '
+  'Bold eta':
+    'prefix': 'bh'
+    'body': '\\\\\\boldsymbol{\\\\eta\}\ '
+  'Bold theta':
+    'prefix': 'bq'
+    'body': '\\\\\\boldsymbol{\\\\theta\}\ '
+  'Bold iota':
+    'prefix': 'bi'
+    'body': '\\\\\\boldsymbol{\\\\iota\}\ '
+  'Bold kappa':
+    'prefix': 'bk'
+    'body': '\\\\\\boldsymbol{\\\\kappa\}\ '
+  'Bold lambda':
+    'prefix': 'bl'
+    'body': '\\\\\\boldsymbol{\\\\lambda\}\ '
+  'Bold mu':
+    'prefix': 'bm'
+    'body': '\\\\\\boldsymbol{\\\\mu\}\ '
+  'Bold nu':
+    'prefix': 'bn'
+    'body': '\\\\\\boldsymbol{\\\\nu\}\ '
+  'Bold xi':
+    'prefix': 'bx'
+    'body': '\\\\\\boldsymbol{\\\\xi\}\ '
+  'Bold pi':
+    'prefix': 'bp'
+    'body': '\\\\\\boldsymbol{\\\\pi\}\ '
+  'Bold rho':
+    'prefix': 'br'
+    'body': '\\\\\\boldsymbol{\\\\rho\}\ '
+  'Bold sigma':
+    'prefix': 'bs'
+    'body': '\\\\\\boldsymbol{\\\\sigma\}\ '
+  'Bold tau':
+    'prefix': 'bt'
+    'body': '\\\\\\boldsymbol{\\\\tau\}\ '
+  'Bold upsilon':
+    'prefix': 'bu'
+    'body': '\\\\\\boldsymbol{\\\\upsilon\}\ '
+  'Bold phi':
+    'prefix': 'bf'
+    'body': '\\\\\\boldsymbol{\\\\phi\}\ '
+  'Bold chi':
+    'prefix': 'bc'
+    'body': '\\\\\\boldsymbol{\\\\chi\}\ '
+  'Bold psi':
+    'prefix': 'by'
+    'body': '\\\\\\boldsymbol{\\\\psi\}\ '
+  'Bold omega':
+    'prefix': 'bw'
+    'body': '\\\\\\boldsymbol{\\\\omega\}\ '
+  'Bold digamma':
+    'prefix': 'bv'
+    'body': '\\\\\\boldsymbol{\\\\digamma\}\ '
+  'Bold Gamma':
+    'prefix': 'bG'
+    'body': '\\\\\\boldsymbol{\\\\Gamma\}\ '
+  'Bold Delta':
+    'prefix': 'bD'
+    'body': '\\\\\\boldsymbol{\\\\Delta\}\ '
+  'Bold Theta':
+    'prefix': 'bQ'
+    'body': '\\\\\\boldsymbol{\\\\Theta\}\ '
+  'Bold Lambda':
+    'prefix': 'bL'
+    'body': '\\\\\\boldsymbol{\\\\SLambda\}\ '
+  'Bold Xi':
+    'prefix': 'bX'
+    'body': '\\\\\\boldsymbol{\\\\SXi\}\ '
+  'Bold Pi':
+    'prefix': 'bP'
+    'body': '\\\\\\boldsymbol{\\\\SPi\}\ '
+  'Bold Sigma':
+    'prefix': 'bS'
+    'body': '\\\\\\boldsymbol{\\\\Sigma\}\ '
+  'Bold Phi':
+    'prefix': 'bF'
+    'body': '\\\\\\boldsymbol{\\\\Phi\}\ '
+  'Bold Psi':
+    'prefix': 'bY'
+    'body': '\\\\\\boldsymbol{\\\\Psi\}\ '
+  'Bold Omega':
+    'prefix': 'bW'
+    'body': '\\\\\\boldsymbol{\\\\Omega\}\ '
+  #-----------------------------------------------------------------------------
+  # Bold Prime Greek Letters
+  ' Bold Prime alpha':
+    'prefix': 'bpa'
+    'body': '\\\\\\boldsymbol{\\\\alpha\\\\prime\\\\prime\}\ '
+  'Bold Prime beta':
+    'prefix': 'bpb'
+    'body': '\\\\\\boldsymbol{\\\\beta\\\\prime\}\ '
+  'Bold Prime gamma':
+    'prefix': 'bpg'
+    'body': '\\\\\\boldsymbol{\\\\gamma\\\\prime\}\ '
+  'Bold Prime delta':
+    'prefix': 'bpd'
+    'body': '\\\\\\boldsymbol{\\\\delta\\\\prime\}\ '
+  'Bold Prime epsilon':
+    'prefix': 'bpe'
+    'body': '\\\\\\boldsymbol{\\\\epsilon\\\\prime\}\ '
+  'Bold Prime zeta':
+    'prefix': 'bpz'
+    'body': '\\\\\\boldsymbol{\\\\zeta\\\\prime\}\ '
+  'Bold Prime eta':
+    'prefix': 'bph'
+    'body': '\\\\\\boldsymbol{\\\\eta\\\\prime\}\ '
+  'Bold Prime theta':
+    'prefix': 'bpq'
+    'body': '\\\\\\boldsymbol{\\\\theta\\\\prime\}\ '
+  'Bold Prime iota':
+    'prefix': 'bpi'
+    'body': '\\\\\\boldsymbol{\\\\iota\\\\prime\}\ '
+  'Bold Prime kappa':
+    'prefix': 'bpk'
+    'body': '\\\\\\boldsymbol{\\\\kappa\\\\prime\}\ '
+  'Bold Prime lambda':
+    'prefix': 'bpl'
+    'body': '\\\\\\boldsymbol{\\\\lambda\\\\prime\}\ '
+  'Bold Prime mu':
+    'prefix': 'bpm'
+    'body': '\\\\\\boldsymbol{\\\\mu\\\\prime\}\ '
+  'Bold Prime nu':
+    'prefix': 'bpn'
+    'body': '\\\\\\boldsymbol{\\\\nu\\\\prime\}\ '
+  'Bold Prime xi':
+    'prefix': 'bpx'
+    'body': '\\\\\\boldsymbol{\\\\xi\\\\prime\}\ '
+  'Bold Prime pi':
+    'prefix': 'bpp'
+    'body': '\\\\\\boldsymbol{\\\\pi\\\\prime\}\ '
+  'Bold Prime rho':
+    'prefix': 'bpr'
+    'body': '\\\\\\boldsymbol{\\\\rho\\\\prime\}\ '
+  'Bold Prime sigma':
+    'prefix': 'bps'
+    'body': '\\\\\\boldsymbol{\\\\sigma\\\\prime\}\ '
+  'Bold Prime tau':
+    'prefix': 'bpt'
+    'body': '\\\\\\boldsymbol{\\\\tau\\\\prime\}\ '
+  'Bold Prime upsilon':
+    'prefix': 'bpu'
+    'body': '\\\\\\boldsymbol{\\\\upsilon\\\\prime\}\ '
+  'Bold Prime phi':
+    'prefix': 'bpf'
+    'body': '\\\\\\boldsymbol{\\\\phi\\\\prime\}\ '
+  'Bold Prime chi':
+    'prefix': 'bpc'
+    'body': '\\\\\\boldsymbol{\\\\chi\\\\prime\}\ '
+  'Bold Prime psi':
+    'prefix': 'bpy'
+    'body': '\\\\\\boldsymbol{\\\\psi\\\\prime\}\ '
+  'Bold Prime omega':
+    'prefix': 'bpw'
+    'body': '\\\\\\boldsymbol{\\\\omega\\\\prime\}\ '
+  'Bold Prime digamma':
+    'prefix': 'bpv'
+    'body': '\\\\\\boldsymbol{\\\\digamma\\\\prime\}\ '
+  'Bold Prime Gamma':
+    'prefix': 'bpG'
+    'body': '\\\\\\boldsymbol{\\\\Gamma\\\\prime\}\ '
+  'Bold Prime Delta':
+    'prefix': 'bpD'
+    'body': '\\\\\\boldsymbol{\\\\Delta\\\\prime\}\ '
+  'Bold Prime Theta':
+    'prefix': 'bpQ'
+    'body': '\\\\\\boldsymbol{\\\\Theta\\\\prime\}\ '
+  'Bold Prime Lambda':
+    'prefix': 'bpL'
+    'body': '\\\\\\boldsymbol{\\\\SLambda\\\\prime\}\ '
+  'Bold Prime Xi':
+    'prefix': 'bpX'
+    'body': '\\\\\\boldsymbol{\\\\SXi\\\\prime\}\ '
+  'Bold Prime Pi':
+    'prefix': 'bpP'
+    'body': '\\\\\\boldsymbol{\\\\SPi\\\\prime\}\ '
+  'Bold Prime Sigma':
+    'prefix': 'bpS'
+    'body': '\\\\\\boldsymbol{\\\\Sigma\\\\prime\}\ '
+  'Bold Prime Phi':
+    'prefix': 'bpF'
+    'body': '\\\\\\boldsymbol{\\\\Phi\\\\prime\}\ '
+  'Bold Prime Psi':
+    'prefix': 'bpY'
+    'body': '\\\\\\boldsymbol{\\\\Psi\\\\prime\}\ '
+  'Bold Prime Omega':
+    'prefix': 'bpW'
+    'body': '\\\\\\boldsymbol{\\\\Omega\\\\prime\}\ '
+  #-----------------------------------------------------------------------------
+  # Dollar Enclosed Greek Letters
+  'Dollar Enclosed Signs':
+    'prefix': 'dl'
+    'body': '\$$1\$ $0\ '
+  ' Dollar Enclosed alpha':
+    'prefix': 'xa'
+    'body': '\$\\\\alpha\$\ '
+  'Dollar Enclosed beta':
+    'prefix': 'xb'
+    'body': '\$\\\\beta\$\ '
+  'Dollar Enclosed gamma':
+    'prefix': 'xg'
+    'body': '\$\\\\gamma\$\ '
+  'Dollar Enclosed delta':
+    'prefix': 'xd'
+    'body': '\$\\\\delta\$\ '
+  'Dollar Enclosed epsilon':
+    'prefix': 'xe'
+    'body': '\$\\\\epsilon\$\ '
+  'Dollar Enclosed zeta':
+    'prefix': 'xz'
+    'body': '\$\\\\zeta\$\ '
+  'Dollar Enclosed eta':
+    'prefix': 'xh'
+    'body': '\$\\\\eta\$\ '
+  'Dollar Enclosed theta':
+    'prefix': 'xq'
+    'body': '\$\\\\theta\$\ '
+  'Dollar Enclosed iota':
+    'prefix': 'xi'
+    'body': '\$\\\\iota\$\ '
+  'Dollar Enclosed kappa':
+    'prefix': 'xk'
+    'body': '\$\\\\kappa\$\ '
+  'Dollar Enclosed lambda':
+    'prefix': 'xl'
+    'body': '\$\\\\lambda\$\ '
+  'Dollar Enclosed mu':
+    'prefix': 'xm'
+    'body': '\$\\\\mu\$\ '
+  'Dollar Enclosed nu':
+    'prefix': 'xn'
+    'body': '\$\\\\nu\$\ '
+  'Dollar Enclosed xi':
+    'prefix': 'xx'
+    'body': '\$\\\\xi\$\ '
+  'Dollar Enclosed pi':
+    'prefix': 'xp'
+    'body': '\$\\\\pi\$\ '
+  'Dollar Enclosed rho':
+    'prefix': 'xr'
+    'body': '\$\\\\rho\$\ '
+  'Dollar Enclosed sigma':
+    'prefix': 'xs'
+    'body': '\$\\\\sigma\$\ '
+  'Dollar Enclosed tau':
+    'prefix': 'xt'
+    'body': '\$\\\\tau\$\ '
+  'Dollar Enclosed upsilon':
+    'prefix': 'xu'
+    'body': '\$\\\\upsilon\$\ '
+  'Dollar Enclosed phi':
+    'prefix': 'xf'
+    'body': '\$\\\\phi\$\ '
+  'Dollar Enclosed chi':
+    'prefix': 'xc'
+    'body': '\$\\\\chi\$\ '
+  'Dollar Enclosed psi':
+    'prefix': 'xy'
+    'body': '\$\\\\psi\$\ '
+  'Dollar Enclosed omega':
+    'prefix': 'xw'
+    'body': '\$\\\\omega\$\ '
+  'Dollar Enclosed digamma':
+    'prefix': 'xv'
+    'body': '\$\\\\digamma\$\ '
+  'Dollar Enclosed Gamma':
+    'prefix': 'xG'
+    'body': '\$\\\\Gamma\$\ '
+  'Dollar Enclosed Delta':
+    'prefix': 'xD'
+    'body': '\$\\\\Delta\$\ '
+  'Dollar Enclosed Theta':
+    'prefix': 'xQ'
+    'body': '\$\\\\Theta\$\ '
+  'Dollar Enclosed Lambda':
+    'prefix': 'xL'
+    'body': '\$\\\\SLambda\$\ '
+  'Dollar Enclosed Xi':
+    'prefix': 'xX'
+    'body': '\$\\\\SXi\$\ '
+  'Dollar Enclosed Pi':
+    'prefix': 'xP'
+    'body': '\$\\\\SPi\$\ '
+  'Dollar Enclosed Sigma':
+    'prefix': 'xS'
+    'body': '\$\\\\Sigma\$\ '
+  'Dollar Enclosed Phi':
+    'prefix': 'xF'
+    'body': '\$\\\\Phi\$\ '
+  'Dollar Enclosed Psi':
+    'prefix': 'xY'
+    'body': '\$\\\\Psi\$\ '
+  'Dollar Enclosed Omega':
+    'prefix': 'xW'
+    'body': '\$\\\\Omega\$\ '
+  #-----------------------------------------------------------------------------
+  # Dollar Enclosed Bold Greek Letters
+  # Regex search replace
+  # prefix regex change
+  # (prefix\':\ \'x)(\w)(\')
+  # $1b$2$3
+  #
+  # body regex change
+  # ('body': '\\\$\\\\\\\\)(\w+)(\W+)
+  # $1\\\\boldsymbol{\\\\\\\\$2\}$3
+  #
+  #
+  ' Dollar Enclosed bold alpha':
+    'prefix': 'xba'
+    'body': '\$\\\\\\boldsymbol{\\\\alpha\}\$\ '
+  'Dollar Enclosed bold beta':
+    'prefix': 'xbb'
+    'body': '\$\\\\\\boldsymbol{\\\\beta\}\$\ '
+  'Dollar Enclosed bold gamma':
+    'prefix': 'xbg'
+    'body': '\$\\\\\\boldsymbol{\\\\gamma\}\$\ '
+  'Dollar Enclosed bold delta':
+    'prefix': 'xbd'
+    'body': '\$\\\\\\boldsymbol{\\\\delta\}\$\ '
+  'Dollar Enclosed bold epsilon':
+    'prefix': 'xbe'
+    'body': '\$\\\\\\boldsymbol{\\\\epsilon\}\$\ '
+  'Dollar Enclosed bold zeta':
+    'prefix': 'xbz'
+    'body': '\$\\\\\\boldsymbol{\\\\zeta\}\$\ '
+  'Dollar Enclosed bold eta':
+    'prefix': 'xbh'
+    'body': '\$\\\\\\boldsymbol{\\\\eta\}\$\ '
+  'Dollar Enclosed bold theta':
+    'prefix': 'xbq'
+    'body': '\$\\\\\\boldsymbol{\\\\theta\}\$\ '
+  'Dollar Enclosed bold iota':
+    'prefix': 'xbi'
+    'body': '\$\\\\\\boldsymbol{\\\\iota\}\$\ '
+  'Dollar Enclosed bold kappa':
+    'prefix': 'xbk'
+    'body': '\$\\\\\\boldsymbol{\\\\kappa\}\$\ '
+  'Dollar Enclosed bold lambda':
+    'prefix': 'xbl'
+    'body': '\$\\\\\\boldsymbol{\\\\lambda\}\$\ '
+  'Dollar Enclosed bold mu':
+    'prefix': 'xbm'
+    'body': '\$\\\\\\boldsymbol{\\\\mu\}\$\ '
+  'Dollar Enclosed bold nu':
+    'prefix': 'xbn'
+    'body': '\$\\\\\\boldsymbol{\\\\nu\}\$\ '
+  'Dollar Enclosed bold xi':
+    'prefix': 'xbx'
+    'body': '\$\\\\\\boldsymbol{\\\\xi\}\$\ '
+  'Dollar Enclosed bold pi':
+    'prefix': 'xbp'
+    'body': '\$\\\\\\boldsymbol{\\\\pi\}\$\ '
+  'Dollar Enclosed bold rho':
+    'prefix': 'xbr'
+    'body': '\$\\\\\\boldsymbol{\\\\rho\}\$\ '
+  'Dollar Enclosed bold sigma':
+    'prefix': 'xbs'
+    'body': '\$\\\\\\boldsymbol{\\\\sigma\}\$\ '
+  'Dollar Enclosed bold tau':
+    'prefix': 'xbt'
+    'body': '\$\\\\\\boldsymbol{\\\\tau\}\$\ '
+  'Dollar Enclosed bold upsilon':
+    'prefix': 'xbu'
+    'body': '\$\\\\\\boldsymbol{\\\\upsilon\}\$\ '
+  'Dollar Enclosed bold phi':
+    'prefix': 'xbf'
+    'body': '\$\\\\\\boldsymbol{\\\\phi\}\$\ '
+  'Dollar Enclosed bold chi':
+    'prefix': 'xbc'
+    'body': '\$\\\\\\boldsymbol{\\\\chi\}\$\ '
+  'Dollar Enclosed bold psi':
+    'prefix': 'xby'
+    'body': '\$\\\\\\boldsymbol{\\\\psi\}\$\ '
+  'Dollar Enclosed bold omega':
+    'prefix': 'xbw'
+    'body': '\$\\\\\\boldsymbol{\\\\omega\}\$\ '
+  'Dollar Enclosed bold digamma':
+    'prefix': 'xbv'
+    'body': '\$\\\\\\boldsymbol{\\\\digamma\}\$\ '
+  'Dollar Enclosed bold Gamma':
+    'prefix': 'xbG'
+    'body': '\$\\\\\\boldsymbol{\\\\Gamma\}\$\ '
+  'Dollar Enclosed bold Delta':
+    'prefix': 'xbD'
+    'body': '\$\\\\\\boldsymbol{\\\\Delta\}\$\ '
+  'Dollar Enclosed bold Theta':
+    'prefix': 'xbQ'
+    'body': '\$\\\\\\boldsymbol{\\\\Theta\}\$\ '
+  'Dollar Enclosed bold Lambda':
+    'prefix': 'xbL'
+    'body': '\$\\\\\\boldsymbol{\\\\SLambda\}\$\ '
+  'Dollar Enclosed bold Xi':
+    'prefix': 'xbX'
+    'body': '\$\\\\\\boldsymbol{\\\\SXi\}\$\ '
+  'Dollar Enclosed bold Pi':
+    'prefix': 'xbP'
+    'body': '\$\\\\\\boldsymbol{\\\\SPi\}\$\ '
+  'Dollar Enclosed bold Sigma':
+    'prefix': 'xbS'
+    'body': '\$\\\\\\boldsymbol{\\\\Sigma\}\$\ '
+  'Dollar Enclosed bold Phi':
+    'prefix': 'xbF'
+    'body': '\$\\\\\\boldsymbol{\\\\Phi\}\$\ '
+  'Dollar Enclosed bold Psi':
+    'prefix': 'xbY'
+    'body': '\$\\\\\\boldsymbol{\\\\Psi\}\$\ '
+  'Dollar Enclosed bold Omega':
+    'prefix': 'xbW'
+    'body': '\$\\\\\\boldsymbol{\\\\Omega\}\$\ '
+  #-----------------------------------------------------------------------------
+  # Dollar Enclosed Bold Prime Greek Letters
+  # (prefix\':\ \')      by $1x
+  'Dollar Enclosed Bold Prime alpha':
+    'prefix': 'xxbpa'
+    'body': '\$\\\\boldsymbol{\\\\alpha\\\\prime}\$'
+  'Dollar Enclosed Bold Prime beta':
+    'prefix': 'xbpb'
+    'body': '\$\\\\boldsymbol{\\\\beta\\\\prime}\$'
+  'Dollar Enclosed Bold Prime gamma':
+    'prefix': 'xbpg'
+    'body': '\$\\\\boldsymbol{\\\\gamma\\\\prime}\$'
+  'Dollar Enclosed Bold Prime delta':
+    'prefix': 'xbpd'
+    'body': '\$\\\\boldsymbol{\\\\delta\\\\prime}\$'
+  'Dollar Enclosed Bold Prime epsilon':
+    'prefix': 'xbpe'
+    'body': '\$\\\\boldsymbol{\\\\epsilon\\\\prime}\$'
+  'Dollar Enclosed Bold Prime zeta':
+    'prefix': 'xbpz'
+    'body': '\$\\\\boldsymbol{\\\\zeta\\\\prime}\$'
+  'Dollar Enclosed Bold Prime eta':
+    'prefix': 'xbph'
+    'body': '\$\\\\boldsymbol{\\\\eta\\\\prime}\$'
+  'Dollar Enclosed Bold Prime theta':
+    'prefix': 'xbpq'
+    'body': '\$\\\\boldsymbol{\\\\theta\\\\prime}\$'
+  'Dollar Enclosed Bold Prime iota':
+    'prefix': 'xbpi'
+    'body': '\$\\\\boldsymbol{\\\\iota\\\\prime}\$'
+  'Dollar Enclosed Bold Prime kappa':
+    'prefix': 'xbpk'
+    'body': '\$\\\\boldsymbol{\\\\kappa\\\\prime}\$'
+  'Dollar Enclosed Bold Prime lambda':
+    'prefix': 'xbpl'
+    'body': '\$\\\\boldsymbol{\\\\lambda\\\\prime}\$'
+  'Dollar Enclosed Bold Prime mu':
+    'prefix': 'xbpm'
+    'body': '\$\\\\boldsymbol{\\\\mu\\\\prime}\$'
+  'Dollar Enclosed Bold Prime nu':
+    'prefix': 'xbpn'
+    'body': '\$\\\\boldsymbol{\\\\nu\\\\prime}\$'
+  'Dollar Enclosed Bold Prime xi':
+    'prefix': 'xbpx'
+    'body': '\$\\\\boldsymbol{\\\\xi\\\\prime}\$'
+  'Dollar Enclosed Bold Prime pi':
+    'prefix': 'xbpp'
+    'body': '\$\\\\boldsymbol{\\\\pi\\\\prime}\$'
+  'Dollar Enclosed Bold Prime rho':
+    'prefix': 'xbpr'
+    'body': '\$\\\\boldsymbol{\\\\rho\\\\prime}\$'
+  'Dollar Enclosed Bold Prime sigma':
+    'prefix': 'xbps'
+    'body': '\$\\\\boldsymbol{\\\\sigma\\\\prime}\$'
+  'Dollar Enclosed Bold Prime tau':
+    'prefix': 'xbpt'
+    'body': '\$\\\\boldsymbol{\\\\tau\\\\prime}\$'
+  'Dollar Enclosed Bold Prime upsilon':
+    'prefix': 'xbpu'
+    'body': '\$\\\\boldsymbol{\\\\upsilon\\\\prime}\$'
+  'Dollar Enclosed Bold Prime phi':
+    'prefix': 'xbpf'
+    'body': '\$\\\\boldsymbol{\\\\phi\\\\prime}\$'
+  'Dollar Enclosed Bold Prime chi':
+    'prefix': 'xbpc'
+    'body': '\$\\\\boldsymbol{\\\\chi\\\\prime}\$'
+  'Dollar Enclosed Bold Prime psi':
+    'prefix': 'xbpy'
+    'body': '\$\\\\boldsymbol{\\\\psi\\\\prime}\$'
+  'Dollar Enclosed Bold Prime omega':
+    'prefix': 'xbpw'
+    'body': '\$\\\\boldsymbol{\\\\omega\\\\prime}\$'
+  'Dollar Enclosed Bold Prime digamma':
+    'prefix': 'xbpv'
+    'body': '\$\\\\boldsymbol{\\\\digamma\\\\prime}\$'
+  'Dollar Enclosed Bold Prime Gamma':
+    'prefix': 'xbpG'
+    'body': '\$\\\\boldsymbol{\\\\Gamma\\\\prime}\$'
+  'Dollar Enclosed Bold Prime Delta':
+    'prefix': 'xbpD'
+    'body': '\$\\\\boldsymbol{\\\\Delta\\\\prime}\$'
+  'Dollar Enclosed Bold Prime Theta':
+    'prefix': 'xbpQ'
+    'body': '\$\\\\boldsymbol{\\\\Theta\\\\prime}\$'
+  'Dollar Enclosed Bold Prime Lambda':
+    'prefix': 'xbpL'
+    'body': '\$\\\\boldsymbol{\\\\SLambda\\\\prime}\$'
+  'Dollar Enclosed Bold Prime Xi':
+    'prefix': 'xbpX'
+    'body': '\$\\\\boldsymbol{\\\\SXi\\\\prime}\$'
+  'Dollar Enclosed Bold Prime Pi':
+    'prefix': 'xbpP'
+    'body': '\$\\\\boldsymbol{\\\\SPi\\\\prime}\$'
+  'Dollar Enclosed Bold Prime Sigma':
+    'prefix': 'xbpS'
+    'body': '\$\\\\boldsymbol{\\\\Sigma\\\\prime}\$'
+  'Dollar Enclosed Bold Prime Phi':
+    'prefix': 'xbpF'
+    'body': '\$\\\\boldsymbol{\\\\Phi\\\\prime}\$'
+  'Dollar Enclosed Bold Prime Psi':
+    'prefix': 'xbpY'
+    'body': '\$\\\\boldsymbol{\\\\Psi\\\\prime}\$'
+  'Dollar Enclosed Bold Prime Omega':
+    'prefix': 'xbpW'
+    'body': '\$\\\\boldsymbol{\\\\Omega\\\\prime}\$'

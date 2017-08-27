@@ -1,0 +1,8 @@
+#clear; gfortran dsyev_test.f90 /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/vecLib && ./a.out
+
+
+#/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/Headers/clapack.h
+
+#/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/Headers/cblas.h
+
+#/System/Library/Frameworks/vecLib.framework/Versions/A/Headers/vecLib.h
